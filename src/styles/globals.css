@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base{
+    .beautiful-scrool{
+        scrollbar-width: thin !important;
+    }
+    .beautiful-scrool::-webkit-scrollbar-thumb {
+        @apply bg-gray-400;
+        @apply rounded-sm;
+    }
+    .beautiful-scrool::-webkit-scrollbar {
+        width: 12px;
+    }
+    .max-w-ms{
+        max-width: 27.25rem
+    }
+    .w-97{
+        width:97%;
+    }
+}
 body{
     background-color: #080a13;
 }
+

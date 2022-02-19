@@ -1,25 +1,25 @@
+import { Person } from "./person";
+
 interface HeaderProps {
     details?: string;
-    mainInformation: string | number;
+    mainInformation: string;
 }
 
 export function Header({ mainInformation, details }: HeaderProps) {
 
 
     return details ? (
-        <header className="mx-3 py-5 flex justify-between items-center ">
+        <header className="bg-primary py-5 px-3 flex justify-between items-center fixed w-97 max-w-ms top-0">
             <div>
                 <span className="text-gray-500 text-xs mx-2">
                     {details}
                 </span><br />
                 <span className="font-bold text-2xl">
-                   $ {mainInformation}
+                    {mainInformation}
                 </span>
             </div>
-            <div className="w-8 h-8 rounded-full relative border-green-weak-cp border-2 box-content ">
-                <img className="rounded-full absolute" src="https://github.com/aldcejam.png" alt="" />
-                <div className="absolute bg-green-cp w-3 h-3 right-0 rounded-full border-2 border-red-100 border-primary" />
-            </div>
+            <Person online={"online"} image={"https://github.com/aldcejam.png"} />
+
         </header>
     ) : (
         <header className="mx-3 pt-5 flex justify-between items-center">
@@ -28,10 +28,8 @@ export function Header({ mainInformation, details }: HeaderProps) {
                     {mainInformation}
                 </span>
             </div>
-            <div className="w-8 h-8 rounded-full relative border-green-weak-cp border-2 box-content ">
-                <img className="rounded-full absolute" src="https://github.com/aldcejam.png" alt="" />
-                <div className="absolute bg-green-cp w-3 h-3 right-0 rounded-full border-2 border-red-100 border-primary" />
-            </div>
+            <Person online={"online"} image={"https://github.com/aldcejam.png"} />
+
         </header>
     )
 }
