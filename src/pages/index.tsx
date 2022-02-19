@@ -8,8 +8,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Home</title>
       </Head>
-      <Header details={'alsl'} text={'926.21'}/>
-      
+      <Header details={'your balance'} mainInformation={926.21}/>
+      sds
     </>
   )
 }
