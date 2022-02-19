@@ -3,25 +3,88 @@
 @tailwind utilities;
 
 
-@layer base{
-    .beautiful-scrool{
+@layer base {
+    .top-70-n {
+        top: -70%;
+    }
+
+    .beautiful-scrool {
         scrollbar-width: thin !important;
     }
+
     .beautiful-scrool::-webkit-scrollbar-thumb {
         @apply bg-gray-400;
         @apply rounded-sm;
     }
+
     .beautiful-scrool::-webkit-scrollbar {
         width: 12px;
     }
-    .max-w-ms{
-        max-width: 27.25rem
+
+    /* ============ footer ============ */
+    .navegationLi {
+        @apply relative;
+        @apply w-20;
+        @apply h-20;
+        @apply z-10;
     }
-    .w-97{
-        width:97%;
+
+    .navegationA {
+        @apply relative;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply flex-col;
+        @apply w-full;
     }
-}
-body{
-    background-color: #080a13;
+
+    .navegationIcon {
+        @apply relative;
+        @apply block;
+        transition: 0.5s;
+    }
+
+    .navegationLi.active .navegationIcon {
+        transform: translateY(-50px)
+    }
+
+    .navegationIndicator {
+        @apply absolute;
+        @apply w-16;
+        @apply h-16;
+        @apply bg-constrast;
+        @apply top-70-n;
+        @apply rounded-full;
+        @apply border-8;
+        @apply box-content;
+        transition: 0.5s;
+    }
+
+    .navegationIndicator::before {
+        content: '';
+        @apply absolute;
+        top: 77%;
+        left: -16px;
+        @apply w-5;
+        @apply h-5;
+        background: transparent;
+        border-top-right-radius: 20px;
+        box-shadow: 0px -10px 2px 0 #DEDEDE; /* color primary */
+    }
+    .navegationIndicator::after {
+        content: '';
+        @apply absolute;
+        top: 77%;
+        right: -16px;
+        @apply w-5;
+        @apply h-5;
+        background: transparent;
+        border-top-left-radius: 20px;
+        box-shadow: 0px -10px 2px 0 #DEDEDE; /* color primary */
+    }
 }
 
+body {
+    background-color: #080a13;
+
+}

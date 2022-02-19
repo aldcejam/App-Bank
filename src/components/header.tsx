@@ -9,7 +9,7 @@ export function Header({ mainInformation, details }: HeaderProps) {
 
 
     return details ? (
-        <header className="bg-primary py-5 px-3 flex justify-between items-center fixed w-97 max-w-ms top-0">
+        <header className="bg-primary py-5 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 <span className="text-gray-500 text-xs mx-2">
                     {details}
