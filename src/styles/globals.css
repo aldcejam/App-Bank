@@ -54,7 +54,7 @@
     }
 
     .navegationUl li.active .navegationIcon {
-        transform: translateY(-57px)
+        transform: translateY(-55px)
     }
 
     .navegationIndicator {
@@ -67,7 +67,7 @@
         @apply box-content;
         transition: 0.5s;
         @apply top-70-n;
-
+        
     }
 
     .navegationIndicator::before {
@@ -92,9 +92,24 @@
         border-top-left-radius: 20px;
         box-shadow: 0px -10px 2px 0 #DEDEDE; /* color primary */
     }
+    .home ~ .navegationIndicator{
+        transform: translateX(max(-40vw,-160px))
+    }
+    .wallet ~ .navegationIndicator{
+        transform: translateX(max(-20vw,-80px))
+    }
+    .money ~ .navegationIndicator{
+        transform: translateX(0px)
+    }
+    .chart ~ .navegationIndicator{
+        transform: translateX(min(20vw,80px))
+    }
+    .config ~ .navegationIndicator{
+        transform: translateX(min(40vw,160px))
+    }
 }
 
 body {
     background-color: #080a13;
-
+    
 }
