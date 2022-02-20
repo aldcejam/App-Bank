@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 
-@layer base {
+@layer utilities {
     .top-70-n {
         top: -70%;
     }
-
+}
+@layer base {
+    
     .beautiful-scrool {
         scrollbar-width: thin !important;
     }
@@ -22,10 +24,17 @@
     }
 
     /* ============ footer ============ */
-    .navegationLi {
+    .navegationUl{
+        @apply text-3xl ;
+        @apply text-gray-400;
+        @apply flex w-full;
+        @apply text-center;
+        @apply justify-center;
+    }
+    .navegationUl li {
         @apply relative;
         @apply w-20;
-        @apply h-20;
+        @apply h-16;
         @apply z-10;
     }
 
@@ -44,8 +53,8 @@
         transition: 0.5s;
     }
 
-    .navegationLi.active .navegationIcon {
-        transform: translateY(-50px)
+    .navegationUl li.active .navegationIcon {
+        transform: translateY(-57px)
     }
 
     .navegationIndicator {
@@ -53,11 +62,12 @@
         @apply w-16;
         @apply h-16;
         @apply bg-constrast;
-        @apply top-70-n;
         @apply rounded-full;
         @apply border-8;
         @apply box-content;
         transition: 0.5s;
+        @apply top-70-n;
+
     }
 
     .navegationIndicator::before {
