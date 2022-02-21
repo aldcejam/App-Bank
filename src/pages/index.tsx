@@ -6,13 +6,13 @@ import { UseAndModifierInformations } from "../contexts/headerContext";
 const Money: NextPage = () => {
 
     /* Header */
-    const {modifierDetails} = UseAndModifierInformations();
-    const {modifierMainInformation} = UseAndModifierInformations();
-    
+    const { modifierDetails } = UseAndModifierInformations();
+    const { modifierMainInformation } = UseAndModifierInformations();
+
     modifierDetails("")
     modifierMainInformation("Send Money")
 
-    
+
     /* true:Card, false: Bank */
     const [subPage, setSubPage] = useState(true);
 
@@ -21,9 +21,9 @@ const Money: NextPage = () => {
     }
     const redirectBank = () => {
         setSubPage(false)
-
     }
-
+    /* ======= cred card ======= */
+    const credCard = Math.floor(Math.random() * 1999) + 999;
     return subPage ? (
         <>
             <main className="overflow-y-scroll">
@@ -39,33 +39,29 @@ const Money: NextPage = () => {
                 <section className="py-8">
                     <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                     <section className="flex gap-8 overflow-invisible overflow-inverted px-5">
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl box-shadow-cp"></div>
+
+                        <div className="card">
+                            <div className="w-full h-full absolute" />
+                            {credCard}
                         </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
+                        <div className="card">
+                            <div className="w-full h-full absolute" />
                         </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
-                        </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
+                        <div className="card">
+                            <div className="w-full h-full absolute " />
                         </div>
                     </section>
 
-                    <h4 className="text-gray-500 text-sm mx-6 my-2">Recipient</h4>
+                    <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                     <section className="flex gap-8 overflow-invisible overflow-inverted px-5">
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl box-shadow-cp"></div>
+                        <div className="card">
+                            {credCard}
                         </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
+                        <div className="card">
+
                         </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
-                        </div>
-                        <div className="pb-8">
-                            <div className="bg-constrast w-5/6 min-w-48 h-36 rounded-xl"></div>
+                        <div className="card">
+
                         </div>
                     </section>
                 </section>

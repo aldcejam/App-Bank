@@ -4,8 +4,8 @@
 
 
 @layer utilities {
-    .min-w-48 {
-        min-width: 12rem
+    .min-w-56 {
+        min-width: 14rem
     }
 
     .box-shadow-cp {
@@ -134,6 +134,18 @@
 
     .config~.navegationIndicator {
         transform: translateX(min(40vw, 160px))
+    }
+
+    /* ============ Card ============ */
+    .card{
+        @apply bg-constrast;
+        @apply w-5/6;
+        @apply min-w-56;
+        @apply h-40;
+        @apply rounded-xl;
+        @apply box-shadow-cp;
+        @apply text-lg;
+        @apply relative;
     }
 }
 
