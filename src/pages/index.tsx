@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           currency: 'USD'
         }).format(EditValueHeader)}
       />
-      
+
     </>
   )
 }

@@ -4,12 +4,31 @@
 
 
 @layer utilities {
-    .top-70-n {
-        top: -70%;
+    .min-w-48 {
+        min-width: 12rem
     }
+
+    .box-shadow-cp {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    }
+
+    .overflow-invisible {
+        overflow-x: scroll;
+        
+    }
+    .overflow-invisible::-webkit-scrollbar {
+        display: none;
+    }
+    .overflow-inverted{
+        direction: rtl;
+    }
+
+
 }
+
 @layer base {
-    
+
+    /* ============= Scroll ============== */
     .beautiful-scrool {
         scrollbar-width: thin !important;
     }
@@ -24,13 +43,14 @@
     }
 
     /* ============ footer ============ */
-    .navegationUl{
-        @apply text-3xl ;
+    .navegationUl {
+        @apply text-3xl;
         @apply text-gray-400;
         @apply flex w-full;
         @apply text-center;
         @apply justify-center;
     }
+
     .navegationUl li {
         @apply relative;
         @apply w-20;
@@ -54,7 +74,7 @@
     }
 
     .navegationUl li.active .navegationIcon {
-        transform: translateY(-55px)
+        transform: translateY(-41px)
     }
 
     .navegationIndicator {
@@ -66,50 +86,58 @@
         @apply border-8;
         @apply box-content;
         transition: 0.5s;
-        @apply top-70-n;
-        
+        top: -50%;
     }
+
 
     .navegationIndicator::before {
         content: '';
         @apply absolute;
-        top: 77%;
-        left: -16px;
+        top: 52%;
+        left: -24px;
         @apply w-5;
         @apply h-5;
         background: transparent;
         border-top-right-radius: 20px;
-        box-shadow: 0px -10px 2px 0 #DEDEDE; /* color primary */
+        box-shadow: 0px -10px 0px 0 #DEDEDE;
+        /* color primary */
     }
+
     .navegationIndicator::after {
         content: '';
         @apply absolute;
-        top: 77%;
-        right: -16px;
+        top: 52%;
+        right: -24px;
         @apply w-5;
         @apply h-5;
         background: transparent;
         border-top-left-radius: 20px;
-        box-shadow: 0px -10px 2px 0 #DEDEDE; /* color primary */
+        box-shadow: 0px -10px 2px 0 #DEDEDE;
+        /* color primary */
     }
-    .home ~ .navegationIndicator{
-        transform: translateX(max(-40vw,-160px))
+
+    .home~.navegationIndicator {
+        transform: translateX(max(-40vw, -160px));
     }
-    .wallet ~ .navegationIndicator{
-        transform: translateX(max(-20vw,-80px))
+
+    .wallet~.navegationIndicator {
+        transform: translateX(max(-20vw, -80px))
     }
-    .money ~ .navegationIndicator{
+
+    .money~.navegationIndicator {
         transform: translateX(0px)
     }
-    .chart ~ .navegationIndicator{
-        transform: translateX(min(20vw,80px))
+
+    .chart~.navegationIndicator {
+        transform: translateX(min(20vw, 80px))
     }
-    .config ~ .navegationIndicator{
-        transform: translateX(min(40vw,160px))
+
+    .config~.navegationIndicator {
+        transform: translateX(min(40vw, 160px))
     }
 }
 
 body {
     background-color: #080a13;
-    
+
 }

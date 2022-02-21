@@ -20,27 +20,27 @@ export function Footer() {
     return (
         <div className="bg-secondary w-full max-w-md h-20 flex items-center bottom-0 fixed pt-6">
             <ul className="navegationUl">
-                <li onClick={()=> activeEvery("iconHome")} className={iconHome ? "active home" : ""}>
+                <li onClick={()=> activeEvery("iconHome")} className={iconHome ? "active home text-gray-100" : ""}>
                     <a href="#">
                         <span className="navegationIcon"><i className="uil uil-estate"></i></span>
                     </a>
                 </li>
-                <li onClick={()=> activeEvery("iconWallet")} className={iconWallet ? "active wallet" : ""}>
+                <li onClick={()=> activeEvery("iconWallet")} className={iconWallet ? "active wallet text-gray-100" : ""}>
                     <a href="#">
                         <span className="navegationIcon"><i className="uil uil-wallet"></i></span>
                     </a>
                 </li>
-                <li onClick={()=> activeEvery("iconMoney")} className={iconMoney ? "active money" : ""}>
+                <li onClick={()=> activeEvery("iconMoney")} className={iconMoney ? "active money text-gray-100" : ""}>
                     <a href="#">
                         <span className="navegationIcon"><i className="uil uil-money-insert"></i></span>
                     </a>
                 </li>
-                <li onClick={()=> activeEvery("iconChart")} className={iconChart ? "active chart" : ""}>
+                <li onClick={()=> activeEvery("iconChart")} className={iconChart ? "active chart text-gray-100" : ""}>
                     <a href="#">
                         <span className="navegationIcon"><i className="uil uil-chart-pie"></i></span>
                     </a>
                 </li>
-                <li onClick={()=> activeEvery("iconConfig")} className={iconConfig ? "active config" : ""}>
+                <li onClick={()=> activeEvery("iconConfig")} className={iconConfig ? "active config text-gray-100" : ""}>
                     <a href="#">
                         <span className="navegationIcon"><i className="uil uil-cog"></i></span>
                     </a>
