@@ -1,12 +1,11 @@
+import { UseAndModifierInformations } from "../contexts/headerContext";
 import { Person } from "./person";
 
-interface HeaderProps {
-    details?: string;
-    mainInformation: string;
-}
 
-export function Header({ mainInformation, details }: HeaderProps) {
 
+export function Header() {
+
+    const {details, mainInformation} = UseAndModifierInformations();
 
     return details ? (
         <header className="bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
