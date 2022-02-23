@@ -11,7 +11,6 @@ module.exports = {
       'orange-cp': '#FF7D00',
       'black-cp':'#171D33',
       'green-cp': '#10C971',
-      'green-weak-cp': '#ECECFB',
       gray: {
         100: '#f7fafc',
         200: '#E0E0E1',

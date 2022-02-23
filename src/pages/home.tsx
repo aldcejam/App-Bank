@@ -5,7 +5,7 @@ import { UseAndModifierInformations } from '../contexts/headerContext';
 
 const home: NextPage = () => {
 
-
+  /* Colocar no modifierMainInformation */
   const SaodoBancario = 2293;
 
   const { modifierDetails } = UseAndModifierInformations();

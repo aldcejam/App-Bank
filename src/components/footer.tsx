@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
-
 export function Footer() {
 
     const [iconHome, setIconHome] = useState(false)
@@ -17,7 +16,7 @@ export function Footer() {
         iconActive == "iconConfig" ? (iconConfig ? "" : setIconConfig(true), setIconHome(false), setIconWallet(false), setIconMoney(false), setIconChart(false)) : "";
     }
     return (
-        <div className="bg-secondary w-full max-w-md h-20 flex items-center bottom-0 fixed pt-6">
+        <div className="z-50 bg-secondary w-full max-w-md h-20 flex items-center bottom-0 fixed pt-6">
             <ul className="navegationUl">
                 <li onClick={() => ActiveIcons("iconHome")} className={iconHome ? "active home text-gray-100" : ""}>
                     <Link href="/home">

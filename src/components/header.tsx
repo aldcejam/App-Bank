@@ -8,7 +8,7 @@ export function Header() {
     const {details, mainInformation} = UseAndModifierInformations();
 
     return details ? (
-        <header className="bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
+        <header className="z-50 bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 <span className="text-gray-500 text-xs mx-2">
                     {details}
@@ -21,7 +21,7 @@ export function Header() {
 
         </header>
     ) : (
-        <header className="bg-primary  py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
+        <header className="z-50 bg-primary  py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 <span className="font-bold text-2xl">
                     {mainInformation}

@@ -1,10 +1,13 @@
 import { NextPage } from "next";
-import { useState } from "react";
-import { Header } from "../components/header";
+import React, { useState } from "react";
+import { Card, CardAdd } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
+
 
 const Money: NextPage = () => {
 
+
+    const ala = React.createElement("dp")
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
     const { modifierMainInformation } = UseAndModifierInformations();
@@ -23,10 +26,15 @@ const Money: NextPage = () => {
         setSubPage(false)
     }
     /* ======= cred card ======= */
-    const credCard = Math.floor(Math.random() * 1999) + 999;
+    const numberApiCard = 32814562
+    const NumberCard = ((numberApiCard).toString()).substring(4);
+
+    /* colocar no */
+    const SaodoBancario = 2293
+
     return subPage ? (
         <>
-            <main className="overflow-y-scroll">
+            <main>
                 <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
                     <div >
                         <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
@@ -36,33 +44,19 @@ const Money: NextPage = () => {
                     </div>
                 </div>
 
-                <section className="py-8">
+                <section className="py-8 overflow-y-scroll overflow-x-hidden beautiful-scroll">
                     <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
-                    <section className="flex gap-8 overflow-invisible overflow-inverted px-5">
-
-                        <div className="card">
-                            <div className="w-full h-full absolute" />
-                            {credCard}
-                        </div>
-                        <div className="card">
-                            <div className="w-full h-full absolute" />
-                        </div>
-                        <div className="card">
-                            <div className="w-full h-full absolute " />
-                        </div>
+                    <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
+                        <CardAdd/>
+                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true}/>
+                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false}/>
+                        
+                        
                     </section>
 
                     <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
-                    <section className="flex gap-8 overflow-invisible overflow-inverted px-5">
-                        <div className="card">
-                            {credCard}
-                        </div>
-                        <div className="card">
-
-                        </div>
-                        <div className="card">
-
-                        </div>
+                    <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
+                        
                     </section>
                 </section>
             </main>
