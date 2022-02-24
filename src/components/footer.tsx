@@ -41,14 +41,14 @@ export function Footer() {
                 </li>
                 <li onClick={() => ActiveIcons("iconChart")} className={iconChart ? "active chart text-gray-100" : ""}>
                     <Link href="/chart">
-                        <a href="#">
+                        <a>
                             <span className="navegationIcon"><i className="uil uil-chart-pie"></i></span>
                         </a>
                     </Link>
                 </li>
                 <li onClick={() => ActiveIcons("iconConfig")} className={iconConfig ? "active config text-gray-100" : ""}>
-                    <Link href="/config">
-                        <a href="#">
+                    <Link href="/settings">
+                        <a>
                             <span className="navegationIcon"><i className="uil uil-cog"></i></span>
                         </a>
                     </Link>

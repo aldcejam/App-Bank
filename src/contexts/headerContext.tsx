@@ -17,10 +17,11 @@ export const InformationsProvider = ({ children }: InformationsProviderProps) =>
     const [details, setDatails] = useState("");
     const [mainInformation, setMainInformation] = useState("");
 
-    async function modifierDetails(modDetails: string) {
+    
+    function modifierDetails(modDetails: string) {
         setDatails(modDetails)
     }
-    async function modifierMainInformation(modInfo: string) {
+    function modifierMainInformation(modInfo: string) {
         setMainInformation(modInfo)
     }
 

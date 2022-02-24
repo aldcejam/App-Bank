@@ -23,6 +23,9 @@ module.exports = {
         900: '#2E2E2E',
       }
     },
+    screens: {
+      'sm': {'max': '370px'}
+    },
     fontFamily: {
       sans: ['Sarabun', 'sans-serif']
     },

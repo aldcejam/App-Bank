@@ -8,7 +8,7 @@ import { InformationsProvider } from "../contexts/headerContext"
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <InformationsProvider>
-      <div className="w-full max-w-md bg-primary h-screen mx-auto pt-24 pb-20 overflow-y-auto overflow-x-hidden beautiful-scrool">
+      <div className="relative w-full max-w-md bg-primary h-screen mx-auto pt-24 pb-56 overflow-y-auto overflow-x-hidden beautiful-scrool">
         <Header />
         <Footer />
         <Component {...pageProps} />

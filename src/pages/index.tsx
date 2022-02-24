@@ -2,12 +2,10 @@ import { NextPage } from "next";
 import React, { useState } from "react";
 import { Card, CardAdd } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
+import ReactDOM from 'react-dom'
 
+const index: NextPage = () => {
 
-const Money: NextPage = () => {
-
-
-    const ala = React.createElement("dp")
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
     const { modifierMainInformation } = UseAndModifierInformations();
@@ -34,7 +32,7 @@ const Money: NextPage = () => {
 
     return subPage ? (
         <>
-            <main>
+            <main id="colq">
                 <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
                     <div >
                         <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
@@ -47,16 +45,16 @@ const Money: NextPage = () => {
                 <section className="py-8 overflow-y-scroll overflow-x-hidden beautiful-scroll">
                     <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                     <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-                        <CardAdd/>
-                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true}/>
-                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false}/>
-                        
-                        
+                        <CardAdd />
+                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true} />
+                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false} />
+
+
                     </section>
 
                     <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                     <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-                        
+
                     </section>
                 </section>
             </main>
@@ -78,7 +76,7 @@ const Money: NextPage = () => {
     );
 }
 
-export default Money;
+export default index;
 
 
 
