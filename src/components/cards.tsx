@@ -55,9 +55,9 @@ interface CardSettingsProps {
 
 export function CardSettings({ icon, settingName }: CardSettingsProps) {
     return (
-        <div className=" w-full h-10-screen  max-h-44 rounded-lg bg-gray-100 flex items-center text-center">
-            <div className=" mx-auto mt-3">
-                <div className="bg-constrast rounded-full mb-1">{icon}</div>
+        <div className=" w-full h-10-screen max-h-44 rounded-lg bg-gray-100 text-center">
+            <div className="mt-1/4">
+                <div className="bg-constrast rounded-full mb-1 w-14 sm:w-10 mx-auto">{icon}</div>
                 <span className="sm:text-sm">{settingName}</span>
             </div>
         </div>

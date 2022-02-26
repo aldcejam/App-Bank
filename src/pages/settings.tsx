@@ -25,17 +25,17 @@ const Config: NextPage = () => {
     modifierMainInformation("Settings")
 
     return (
-        <div className="w-full grid grid-cols-2 absolute gap-6 p-5 py-8  ">
-            <CardSettings icon={<IoAlertSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'on'} />
-            <CardSettings icon={<IoLockClosedSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoMail className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoCall className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoNotificationsSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoPersonSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoShieldSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoCashOutline className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoHelpSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
-            <CardSettings icon={<IoLanguageSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'oa'} />
+        <div className="w-full grid grid-cols-2 absolute gap-6 p-5 py-8 pb-24">
+            <CardSettings icon={<IoAlertSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Profile Information'} />
+            <CardSettings icon={<IoLockClosedSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Passworld'} />
+            <CardSettings icon={<IoMail className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Email'} />
+            <CardSettings icon={<IoCall className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Phone Number'} />
+            <CardSettings icon={<IoNotificationsSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Notification'} />
+            <CardSettings icon={<IoCashOutline className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Currency'} />
+            <CardSettings icon={<IoLanguageSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Language'} />
+            <CardSettings icon={<IoPersonSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Account'} />
+            <CardSettings icon={<IoShieldSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Privacy Policy'} />
+            <CardSettings icon={<IoHelpSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Terms of Use'} />
         </div>
     )
 }
