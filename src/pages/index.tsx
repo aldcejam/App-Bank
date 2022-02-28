@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import React, { useState } from "react";
-import { Card, CardAdd } from "../components/cards";
+import React, { FormEvent, useState } from "react";
+import { Card, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
 import ReactDOM from 'react-dom'
 
@@ -13,7 +13,6 @@ const index: NextPage = () => {
     modifierDetails("")
     modifierMainInformation("Send Money")
 
-
     /* true:Card, false: Bank */
     const [subPage, setSubPage] = useState(true);
 
@@ -23,6 +22,24 @@ const index: NextPage = () => {
     const redirectBank = () => {
         setSubPage(false)
     }
+
+    /* ============ Transaction ============ */
+
+    const [transactionAmount, setTransactionAmount] = useState(Number);
+    const [transactionDescription, setTransactionDescription] = useState("");
+
+    function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault();
+
+        const saveInfos = {
+            amount: transactionAmount,
+            description: transactionDescription
+        }
+
+        setTransactionAmount(0)
+        setTransactionDescription('')
+    }
+
     /* ======= cred card ======= */
     const numberApiCard = 32814562
     const NumberCard = ((numberApiCard).toString()).substring(4);
@@ -31,47 +48,77 @@ const index: NextPage = () => {
     const SaodoBancario = 2293
 
     return subPage ? (
-        <>
-            <main id="colq">
-                <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
-                    <div >
-                        <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
-                    </div>
-                    <div onClick={redirectBank} className="cursor-pointer">
-                        <span>Bank</span>
-                    </div>
+
+        <main>
+            <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
+                <div >
+                    <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
                 </div>
+                <div onClick={redirectBank} className="cursor-pointer">
+                    <span>Bank</span>
+                </div>
+            </div>
 
-                <section className="py-8 overflow-y-scroll overflow-x-hidden beautiful-scroll">
-                    <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
-                    <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-                        <CardAdd />
-                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true} />
-                        <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false} />
+            <section className="py-8 overflow-y-scroll overflow-x-hidden beautiful-scroll">
+                {/* =========================== select credit card =========================== */}
+                <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
+                <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
+                    <CardAdd />
+                    <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true} />
+                    <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false} />
 
 
-                    </section>
-
-                    <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
-                    <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-
-                    </section>
                 </section>
-            </main>
-        </>
+
+                {/* =========================== Recipient =========================== */}
+                <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
+                <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
+                    <CardRecipient isActive={false} RecipientImage={'https://github.com/aldcejam.png'} />
+                    <CardRecipient isActive={true} RecipientImage={'https://github.com/aldcejam.png'} />
+                    <CardRecipient isActive={false} RecipientImage={'https://github.com/aldcejam.png'} />
+                </section>
+            </section>
+
+            {/* =========================== Transaction =========================== */}
+            <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Transaction details</h4>
+            <form method="post" onSubmit={handleCreateNewTransaction} className="flex justify-center flex-wrap gap-y-4 py-6">
+                <fieldset className="group w-9/10 max-w-sm px-4 border-2 rounded-large border-gray-500 hover:border-constrast duration-200">
+                    <legend className="ml-1 px-2 group-hover:text-constrast duration-200">Amount</legend>
+                    <span className="text-gray-400 text-xl">$</span>
+                    <input
+                        placeholder="$"
+                        className="w-9/10% max-w-sm pb-4 pt-2 px-1 border-2  bg-transparent   focus:outline-none "
+                        value={transactionAmount}
+                        onChange={event => setTransactionAmount(Number(event.target.value))}
+                    />
+                </fieldset>
+                <input
+                    placeholder="Description (optional)"
+                    className="p-5 w-9/10 max-w-sm bg-transparent border-2 rounded-large border-gray-500 focus:outline-none"
+                    value={transactionDescription}
+                    onChange={event => setTransactionDescription(event.target.value)}
+                />
+                <br />
+                <button
+                    type="submit"
+                    className="w-9/10 max-w-sm bg-constrast py-4 rounded-large text-secondary">
+                    Confirm
+                </button>
+
+            </form>
+        </main>
+
     ) : (
-        <>
-            <main>
-                <div className=" border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
-                    <div onClick={redirectCard} className="cursor-pointer">
-                        <span>Card</span>
-                    </div>
-                    <div>
-                        <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Bank</span>
-                    </div>
+        <main>
+            <div className=" border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
+                <div onClick={redirectCard} className="cursor-pointer">
+                    <span>Card</span>
                 </div>
-            </main>
-        </>
+                <div>
+                    <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Bank</span>
+                </div>
+            </div>
+        </main>
 
     );
 }

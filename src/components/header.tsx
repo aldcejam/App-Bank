@@ -17,7 +17,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={"online"} image={"https://github.com/aldcejam.png"} />
+            <Person online={true} image={"https://github.com/aldcejam.png"} width="w-8" height="h-8" />
 
         </header>
     ) : (
@@ -27,7 +27,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={"online"} image={"https://github.com/aldcejam.png"} />
+            <Person online={true} image={"https://github.com/aldcejam.png"} width="w-8" height="h-8" />
 
         </header>
     )

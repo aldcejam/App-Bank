@@ -43,14 +43,27 @@ module.exports = {
       'large': '12px',
       '2x2': '20px'
     },
+    minWidth: {
+      '52': '13rem',
+    },
+    maxWidth: {
+      '16': '64px',
+      'sm': '420px',
+      'md': '450px' 
+    },
     extend: {
+      width: {
+        '9/10': '90vw',
+        '9/10%': '90%',
+      },
       boxShadow: {
-        'md': '0px -10px 0px 0 #DEDEDE',
+        'md': 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
 
       },
       spacing: {
-        '3/5': '60%',
-        '1/4': '25%'
+        '3/5': '63%',
+        '1/4': '25%',
+        '7/20': '35%'
       }
     },
   },

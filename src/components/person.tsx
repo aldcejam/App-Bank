@@ -1,16 +1,18 @@
 interface PersonProps {
-    online?: string
+    online?: boolean;
     image: string
+    height: string;
+    width: string;
 }
 
-export function Person({ online, image }: PersonProps) {
+export function Person({ online, image,width, height }: PersonProps) {
     return online ? (
-        <div className="w-8 h-8 rounded-full relative border-green-weak-cp border-2 box-content ">
+        <div className={`${width} ${height} rounded-full relative border-2 box-content `}>
             <img className="rounded-full absolute" src={image} alt="" />
             <div className="absolute bg-green-cp w-3 h-3 right-0 rounded-full border-2 border-red-100 border-primary" />
         </div>
     ) : (
-        <div className="w-8 h-8 rounded-full relative border-green-weak-cp border-2 box-content ">
+        <div className={`${width} ${height} rounded-full relative box-content `}>
             <img className="rounded-full absolute" src={image} alt="" />
         </div>
     )
