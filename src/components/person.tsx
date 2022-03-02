@@ -1,6 +1,6 @@
 interface PersonProps {
     online?: boolean;
-    image: string
+    image: any;
     height: string;
     width: string;
 }

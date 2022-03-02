@@ -1,10 +1,10 @@
 import { UseAndModifierInformations } from "../contexts/headerContext";
 import { Person } from "./person";
-
+import { useSession, signIn, signOut } from "next-auth/react";
 
 
 export function Header() {
-
+    const { data: session } = useSession();
     const {details, mainInformation} = UseAndModifierInformations();
 
     return details ? (
@@ -17,7 +17,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={true} image={"https://github.com/aldcejam.png"} width="w-8" height="h-8" />
+            <Person online={true} image={session?.user?.image} width="w-8" height="h-8" />
 
         </header>
     ) : (
@@ -27,7 +27,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={true} image={"https://github.com/aldcejam.png"} width="w-8" height="h-8" />
+            <Person online={true} image={session?.user?.image} width="w-8" height="h-8" />
 
         </header>
     )

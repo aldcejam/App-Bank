@@ -13,7 +13,7 @@ interface InformationsHeaderProps {
 
 const InformationsHeader = createContext<InformationsHeaderProps>({} as InformationsHeaderProps);
 
-export const InformationsProvider = ({ children }: InformationsProviderProps) => {
+export const InformationsHeaderProvider = ({ children }: InformationsProviderProps) => {
     const [details, setDatails] = useState("");
     const [mainInformation, setMainInformation] = useState("");
 

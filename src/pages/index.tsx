@@ -2,9 +2,10 @@ import { NextPage } from "next";
 import React, { FormEvent, useState } from "react";
 import { Card, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
-import ReactDOM from 'react-dom'
+import { useSession, signIn, signOut,  } from "next-auth/react";
 
 const index: NextPage = () => {
+    const { data: session } = useSession();
 
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
@@ -50,6 +51,9 @@ const index: NextPage = () => {
     return subPage ? (
 
         <main>
+            <button
+                onClick={() => signIn()}
+            >click</button>
             <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
                 <div >
                     <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
@@ -106,6 +110,7 @@ const index: NextPage = () => {
                 </button>
 
             </form>
+                
         </main>
 
     ) : (
