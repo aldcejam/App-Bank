@@ -1,11 +1,12 @@
 import { UseAndModifierInformations } from "../contexts/headerContext";
 import { Person } from "./person";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { UseInformationsAccount } from "../contexts/informatiosAccount";
 
 
 export function Header() {
-    const { data: session } = useSession();
     const {details, mainInformation} = UseAndModifierInformations();
+    const {userInforms} = UseInformationsAccount();
+    const userImage = userInforms.userImage;
 
     return details ? (
         <header className="z-50 bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
@@ -17,7 +18,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={true} image={session?.user?.image} width="w-8" height="h-8" />
+            <Person online={true} image={userImage} width="w-8" height="h-8" />
 
         </header>
     ) : (
@@ -27,7 +28,7 @@ export function Header() {
                     {mainInformation}
                 </span>
             </div>
-            <Person online={true} image={session?.user?.image} width="w-8" height="h-8" />
+            <Person online={true} image={userImage} width="w-8" height="h-8" />
 
         </header>
     )

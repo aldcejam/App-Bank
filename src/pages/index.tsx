@@ -1,12 +1,11 @@
 import { NextPage } from "next";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Card, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
-import { useSession, signIn, signOut,  } from "next-auth/react";
+import { UseInformationsAccount } from "../contexts/informatiosAccount";
 
-const index: NextPage = () => {
-    const { data: session } = useSession();
-
+const index: NextPage = (props) => {
+    
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
     const { modifierMainInformation } = UseAndModifierInformations();
@@ -52,7 +51,7 @@ const index: NextPage = () => {
 
         <main>
             <button
-                onClick={() => signIn()}
+                /* onClick={() => signIn()} */
             >click</button>
             <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
                 <div >
@@ -110,7 +109,7 @@ const index: NextPage = () => {
                 </button>
 
             </form>
-                
+
         </main>
 
     ) : (
@@ -127,8 +126,20 @@ const index: NextPage = () => {
 
     );
 }
-
 export default index;
+
+export async function getServerSideProps() {
+    
+    const {userInforms} = UseInformationsAccount();
+    const userName = userInforms.userName
+
+    const res = await fetch(`https://api.github.com/users/${userName}`)
+    const data = await res.json()
+
+    // Pass data to the page via props
+    return { props: { data } }
+}
+
 
 
 
