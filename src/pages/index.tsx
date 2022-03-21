@@ -1,17 +1,18 @@
-import { NextPage } from "next";
-import React, { FormEvent, useEffect, useState } from "react";
-import { Card, CardAdd, CardRecipient } from "../components/cards";
+import { NextApiRequest, NextPage } from "next";
+import { getSession } from "next-auth/react";
+import React, { FormEvent, useState } from "react";
+import { CredCard, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformations } from "../contexts/headerContext";
-import { UseInformationsAccount } from "../contexts/informatiosAccount";
 
 const index: NextPage = (props) => {
-    
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
-    const { modifierMainInformation } = UseAndModifierInformations();
+    const { modifierHeaderTitle } = UseAndModifierInformations();
 
     modifierDetails("")
-    modifierMainInformation("Send Money")
+    modifierHeaderTitle("Send Money")
+
+    console.log(props)
 
     /* true:Card, false: Bank */
     const [subPage, setSubPage] = useState(true);
@@ -45,14 +46,11 @@ const index: NextPage = (props) => {
     const NumberCard = ((numberApiCard).toString()).substring(4);
 
     /* colocar no */
-    const SaodoBancario = 2293
+    const BankBalance = 2293
 
     return subPage ? (
 
         <main>
-            <button
-                /* onClick={() => signIn()} */
-            >click</button>
             <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
                 <div >
                     <span className="border-orange-cp border-solid border-b-2 px-8 pb-1">Card</span>
@@ -67,12 +65,10 @@ const index: NextPage = (props) => {
                 <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
                     <CardAdd />
-                    <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={true} />
-                    <Card NumberCard={NumberCard} SaodoBancario={SaodoBancario} isActive={false} />
-
+                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive/>
 
                 </section>
-
+                    
                 {/* =========================== Recipient =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
@@ -128,12 +124,13 @@ const index: NextPage = (props) => {
 }
 export default index;
 
-export async function getServerSideProps() {
-    
-    const {userInforms} = UseInformationsAccount();
-    const userName = userInforms.userName
 
-    const res = await fetch(`https://api.github.com/users/${userName}`)
+export async function getServerSideProps(req: NextApiRequest) {
+    
+    const session = await getSession({req})
+    const name = session?.user?.name;
+
+    const res = await fetch(`https://api.github.com/users/aldcejam`)
     const data = await res.json()
 
     // Pass data to the page via props

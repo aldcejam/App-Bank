@@ -9,11 +9,11 @@ const home: NextPage = () => {
   const SaodoBancario = 2293;
 
   const { modifierDetails } = UseAndModifierInformations();
-  const { modifierMainInformation } = UseAndModifierInformations();
+  const { modifierHeaderTitle } = UseAndModifierInformations();
 
   /* ===== header ===== */
   modifierDetails("your banlance")
-  modifierMainInformation(Intl.NumberFormat('pt-BR', {
+  modifierHeaderTitle(Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(SaodoBancario))

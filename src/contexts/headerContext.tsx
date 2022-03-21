@@ -5,28 +5,28 @@ interface InformationsProviderProps {
 }
 
 interface InformationsHeaderProps {
-    mainInformation: string;
+    headerTitle: string;
     details: string;
     modifierDetails: (modDetails: string) => void;
-    modifierMainInformation: (modInfo: string) => void;
+    modifierHeaderTitle: (modInfo: string) => void;
 }
 
 const InformationsHeader = createContext<InformationsHeaderProps>({} as InformationsHeaderProps);
 
 export const InformationsHeaderProvider = ({ children }: InformationsProviderProps) => {
     const [details, setDatails] = useState("");
-    const [mainInformation, setMainInformation] = useState("");
+    const [headerTitle, setHeaderTitle] = useState("");
 
     
     function modifierDetails(modDetails: string) {
         setDatails(modDetails)
     }
-    function modifierMainInformation(modInfo: string) {
-        setMainInformation(modInfo)
+    function modifierHeaderTitle(modInfo: string) {
+        setHeaderTitle(modInfo)
     }
 
     return(
-        <InformationsHeader.Provider value={{details,mainInformation,modifierDetails, modifierMainInformation}}>
+        <InformationsHeader.Provider value={{details,headerTitle,modifierDetails, modifierHeaderTitle}}>
             {children}
         </InformationsHeader.Provider>
     )

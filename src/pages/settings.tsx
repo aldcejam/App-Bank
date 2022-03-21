@@ -19,10 +19,10 @@ import {
 const Config: NextPage = () => {
     /* Header */
     const { modifierDetails } = UseAndModifierInformations();
-    const { modifierMainInformation } = UseAndModifierInformations();
+    const { modifierHeaderTitle } = UseAndModifierInformations();
 
     modifierDetails("")
-    modifierMainInformation("Settings")
+    modifierHeaderTitle("Settings")
 
     return (
         <div className="w-full grid grid-cols-2 absolute gap-6 p-5 py-8 pb-24">

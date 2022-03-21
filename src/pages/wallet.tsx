@@ -4,10 +4,10 @@ import { UseAndModifierInformations } from "../contexts/headerContext";
 const Wallet: NextPage = () => {
     /* Header */
     const {modifierDetails} = UseAndModifierInformations();
-    const {modifierMainInformation} = UseAndModifierInformations();
+    const {modifierHeaderTitle} = UseAndModifierInformations();
     
     modifierDetails("")
-    modifierMainInformation("Manage Money")
+    modifierHeaderTitle("Manage Money")
 
     return(
         <></>

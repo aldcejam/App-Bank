@@ -1,19 +1,14 @@
 import { IoIosAddCircle, IoLogoVk } from "react-icons/io"
-import { IconType } from "react-icons/lib";
-import { Person } from "./person";
-
-
-
-
+import { PersonCard } from "./person";
 
 /* ================== credit card ================== */
-interface CardProps {
+interface CredCardProps {
     NumberCard: string;
-    SaodoBancario: number;
-    isActive: boolean;
+    BankBalance: number;
+    IsActive: boolean;
 }
-export function Card({ NumberCard, SaodoBancario, isActive }: CardProps) {
-    return isActive ? (
+export function CredCard({ NumberCard, BankBalance, IsActive }: CredCardProps) {
+    return IsActive ? (
         <div className="w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3 bg-constrast">
             <div className="w-full h-full absolute" />
             <IoLogoVk className="float-left text-3xl" />
@@ -24,7 +19,7 @@ export function Card({ NumberCard, SaodoBancario, isActive }: CardProps) {
                 {Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
-                }).format(SaodoBancario)}
+                }).format(BankBalance)}
             </span>
 
         </div>
@@ -40,7 +35,7 @@ export function Card({ NumberCard, SaodoBancario, isActive }: CardProps) {
                     {Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
-                    }).format(SaodoBancario)}
+                    }).format(BankBalance)}
                 </span>
 
             </div>
@@ -55,23 +50,15 @@ interface CardRecipientProps {
     RecipientImage: string;
 }
 export function CardRecipient({ isActive, RecipientImage }: CardRecipientProps) {
-    return isActive ? (
-        <div className="w-5/6 min-w-52 max-w-16 h-40 rounded-lg shadow-md text-lg text-center p-3 bg-constrast flex items-center justify-center">
+    const colorCard = isActive ? "bg-constrast" : "bg-gray-300";
+    return(
+        <div className={`${colorCard} w-5/6 min-w-52 max-w-16 h-40 rounded-lg shadow-md text-lg text-center p-3  flex items-center justify-center`}>
             <div className="">
-                <Person online={false} image={RecipientImage} width="w-12" height="h-12" />
+                <PersonCard image={RecipientImage}  />
                 <p>sjsj</p>
             </div>
         </div>
-    ) : (
-        <div className="w-5/6 min-w-52 max-w-16 h-40 rounded-lg shadow-md text-lg text-center p-3 bg-gray-300 flex items-center justify-center">
-            <div className="">
-                <Person online={false} image={RecipientImage} width="w-12" height="h-12" />
-                <p>sjsj</p>
-            </div>
-
-
-        </div>
-    );
+    )
 }
 
 /* ================== add card ================== */
