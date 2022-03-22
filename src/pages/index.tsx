@@ -65,7 +65,8 @@ const index: NextPage = (props) => {
                 <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
                     <CardAdd />
-                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive/>
+                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive={true}/>
+                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive={false}/>
 
                 </section>
                     

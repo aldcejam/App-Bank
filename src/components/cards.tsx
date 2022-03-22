@@ -8,8 +8,9 @@ interface CredCardProps {
     IsActive: boolean;
 }
 export function CredCard({ NumberCard, BankBalance, IsActive }: CredCardProps) {
-    return IsActive ? (
-        <div className="w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3 bg-constrast">
+    const situationCredCard = IsActive ? "bg-constrast" : "bg-gray-300";
+    return (
+        <div className={`${situationCredCard} w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
             <div className="w-full h-full absolute" />
             <IoLogoVk className="float-left text-3xl" />
             <span className="absolute bottom-16 right-10 text-2xl text-gray-100">
@@ -23,23 +24,7 @@ export function CredCard({ NumberCard, BankBalance, IsActive }: CredCardProps) {
             </span>
 
         </div>
-    ) :
-        (
-            <div className="w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3 bg-gray-200">
-                <div className="w-full h-full absolute" />
-                <IoLogoVk className="float-left text-3xl" />
-                <span className="absolute bottom-16 right-10 text-2xl text-gray-500">
-                    {NumberCard} <span className="mr-3">****</span>
-                </span>
-                <span className="absolute bottom-2 left-3 text-gray-500">
-                    {Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    }).format(BankBalance)}
-                </span>
-
-            </div>
-        );
+    )
 }
 
 
