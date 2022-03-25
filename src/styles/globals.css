@@ -1,9 +1,16 @@
+body{
+    font-family: 'Titillium Web', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 @layer utilities {
+    .display-disappear{
+        transition: display 1s;
+    }
     .min-w-56 {
         min-width: 14rem
     }

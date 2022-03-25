@@ -10,9 +10,9 @@ export default class MyDocument extends Document {
                     {/* =============== Font Family =============== */}
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
-                    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100;400;700&display=swap" rel="stylesheet"></link>
-                    {/* =============== Icons =============== */}
-                    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,600&display=swap" rel="stylesheet"/>
+                        {/* =============== Icons =============== */}
+                        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"></link>
                 </Head>
                 <body>
                     <Main />

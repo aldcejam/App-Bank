@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useContext, useEffect, useState } from "react"
+import {useState } from "react"
 export function Footer() {
 
     const [iconHome, setIconHome] = useState(false)

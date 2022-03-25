@@ -1,6 +1,8 @@
 import { UseAndModifierInformations } from "../contexts/headerContext";
 import { PersonAutentication } from "./person";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { MenuUser } from "./menuUser";
+import { useState } from "react";
 
 
 export function Header() {
@@ -13,15 +15,15 @@ export function Header() {
     /* ======== Header situation ======== */
     const situation = status == "authenticated" ? true : false;
 
-    function login(situation: boolean){
-        if(situation){
-            signOut()
-        }else{
-            signIn()
-        }
+    
+    /* onClick={() => login(situation)}  */
+    const [isActive, setIsActive] = useState(false)
+    function showOptionsUser(){
+        isActive ? setIsActive(false): setIsActive(true);
+
     }
     return (
-        <header onClick={() => login(situation)}  className="z-50 bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
+        <header className="z-50 bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 {details ?
                     <div>
@@ -29,14 +31,18 @@ export function Header() {
                             {details}
                         </span>
                         <br />
-                    </div> 
+                    </div>
                     : ""}
                 <span className="font-bold text-2xl">
                     {headerTitle}
                 </span>
             </div>
-            {situation ? <PersonAutentication online={situation} image={personImage} /> : <span>login</span>}
-
+            <div className="cursor-pointer" onClick={() => showOptionsUser()}>
+            {situation ? <PersonAutentication image={personImage} /> : <span>login</span>}
+            </div>
+            <div className="absolute z-40 right-12 top-18">
+                <MenuUser isActive={isActive} />
+            </div>
         </header>
     )
 }
