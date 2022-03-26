@@ -73,8 +73,8 @@ const index: NextPage = (props) => {
                 {/* =========================== Recipient =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-                    <CardRecipient isActive={false} RecipientImage={'https://github.com/aldcejam.png'} />
-                    <CardRecipient isActive={true} RecipientImage={'https://github.com/aldcejam.png'} />
+                    <CardRecipient isActive={false} RecipientImage={''} />
+                    <CardRecipient isActive={true} RecipientImage={''} />
                     <CardRecipient isActive={false} RecipientImage={'https://github.com/aldcejam.png'} />
                 </section>
             </section>
