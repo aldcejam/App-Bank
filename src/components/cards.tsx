@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { IoIosAddCircle, IoLogoVk } from "react-icons/io"
 import { PersonCard } from "./person";
 
@@ -7,7 +8,8 @@ interface CredCardProps {
     BankBalance: number;
     IsActive: boolean;
 }
-export function CredCard({ NumberCard, BankBalance, IsActive }: CredCardProps) {
+
+function CredCardComponents({ NumberCard, BankBalance, IsActive }: CredCardProps) {
     const situationCredCard = IsActive ? "bg-constrast" : "bg-gray-300";
     return (
         <div className={`${situationCredCard} w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
@@ -27,6 +29,8 @@ export function CredCard({ NumberCard, BankBalance, IsActive }: CredCardProps) {
     )
 }
 
+export const CredCard = memo(CredCardComponents)
+
 
 /* ================== card Friends ================== */
 
@@ -34,11 +38,11 @@ interface CardRecipientProps {
     isActive: boolean;
     RecipientImage: string;
 }
-export function CardRecipient({ isActive, RecipientImage }: CardRecipientProps) {
+ function CardRecipientComponent({ isActive, RecipientImage }: CardRecipientProps) {
     const colorCard = isActive ? "bg-constrast" : "bg-gray-300";
     return(
-        <div className={`${colorCard} w-5/6 min-w-52 max-w-16 h-40 rounded-lg shadow-md text-lg text-center p-3  flex items-center justify-center`}>
-            <div className="">
+        <div className={`${colorCard} shadow-inner w-5/6 min-w-52 max-w-16 h-40 rounded-lg text-lg text-center p-3  flex items-center justify-center`}>
+            <div>
                 <PersonCard image={RecipientImage}  />
                 <p>sjsj</p>
             </div>
@@ -46,8 +50,9 @@ export function CardRecipient({ isActive, RecipientImage }: CardRecipientProps) 
     )
 }
 
+export const CardRecipient = memo(CardRecipientComponent)
 /* ================== add card ================== */
-export function CardAdd() {
+export function CardAddComponent() {
     return (
         <div className="border-gray-300 relative w-5/6 min-w-56 h-40 text-lg rounded-lg border-dashed shadow-md border-2">
             <div className="w-full h-full absolute" />
@@ -56,8 +61,7 @@ export function CardAdd() {
         </div>
     )
 }
-
-
+export const CardAdd = memo(CardAddComponent)
 /* ================== config cards ================== */
 interface CardSettingsProps {
     icon: any;

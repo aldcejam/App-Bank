@@ -29,6 +29,7 @@ const index: NextPage = (props) => {
     const [transactionAmount, setTransactionAmount] = useState(Number);
     const [transactionDescription, setTransactionDescription] = useState("");
 
+
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
 
@@ -73,8 +74,8 @@ const index: NextPage = (props) => {
                 {/* =========================== Recipient =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
-                    <CardRecipient isActive={false} RecipientImage={''} />
-                    <CardRecipient isActive={true} RecipientImage={''} />
+                    <CardRecipient isActive={false} RecipientImage={'https://github.com/claudsondouglas.png'} />
+                    <CardRecipient isActive={true} RecipientImage={'https://github.com/ryanizac.png'} />
                     <CardRecipient isActive={false} RecipientImage={'https://github.com/aldcejam.png'} />
                 </section>
             </section>
@@ -89,7 +90,7 @@ const index: NextPage = (props) => {
                         placeholder="$"
                         className="w-9/10% max-w-sm pb-4 pt-2 px-1 border-2  bg-transparent   focus:outline-none "
                         value={transactionAmount}
-                        onChange={event => setTransactionAmount(Number(event.target.value))}
+                        onChange={event => Number.isNaN(Number(event.target.value)) ? "" : setTransactionAmount(Number(event.target.value)) }
                     />
                 </fieldset>
                 <input

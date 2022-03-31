@@ -25,7 +25,7 @@ const Config: NextPage = () => {
     modifierHeaderTitle("Settings")
 
     return (
-        <div className="w-full grid grid-cols-2 absolute gap-6 p-5 py-8 pb-24">
+        <div className="w-full grid grid-cols-2  gap-6 p-5 py-8 pb-24">
             <CardSettings icon={<IoAlertSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Profile Information'} />
             <CardSettings icon={<IoLockClosedSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Passworld'} />
             <CardSettings icon={<IoMail className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Email'} />

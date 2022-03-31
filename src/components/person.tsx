@@ -6,7 +6,7 @@ interface PersonProps {
 
 export function PersonCard({ image }: PersonProps) {
     return (
-        <div className={`w-12 h-12 rounded-full relative box-content `}>
+        <div className={`w-12 h-12 rounded-full relative box-content border-2 border-solid border-gray-100`}>
             <img className="rounded-full absolute" src={image} alt="" />
         </div>
     )
