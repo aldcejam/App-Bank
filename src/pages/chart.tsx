@@ -3,8 +3,8 @@ import { UseAndModifierInformations } from "../contexts/headerContext";
 
 const Chart: NextPage = () => {
     /* Header */
-    const {modifierDetails} = UseAndModifierInformations();
-    const {modifierHeaderTitle} = UseAndModifierInformations();
+    const {modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
+
     
     modifierDetails("")
     modifierHeaderTitle("historic")

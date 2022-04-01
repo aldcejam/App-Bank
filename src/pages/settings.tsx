@@ -18,8 +18,7 @@ import {
 
 const Config: NextPage = () => {
     /* Header */
-    const { modifierDetails } = UseAndModifierInformations();
-    const { modifierHeaderTitle } = UseAndModifierInformations();
+    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
 
     modifierDetails("")
     modifierHeaderTitle("Settings")

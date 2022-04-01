@@ -6,8 +6,7 @@ import { UseAndModifierInformations } from "../contexts/headerContext";
 
 const index: NextPage = (props) => {
     /* Header */
-    const { modifierDetails } = UseAndModifierInformations();
-    const { modifierHeaderTitle } = UseAndModifierInformations();
+    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
 
     modifierDetails("")
     modifierHeaderTitle("Send Money")
@@ -125,20 +124,6 @@ const index: NextPage = (props) => {
     );
 }
 export default index;
-
-
-export async function getServerSideProps(req: NextApiRequest) {
-    
-    const session = await getSession({req})
-    const name = session?.user?.name;
-
-    const res = await fetch(`https://api.github.com/users/aldcejam`)
-    const data = await res.json()
-
-    // Pass data to the page via props
-    return { props: { data } }
-}
-
 
 
 

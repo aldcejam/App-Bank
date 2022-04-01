@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 interface InformationsProviderProps {
     children: ReactNode;
@@ -14,10 +14,9 @@ interface InformationsHeaderProps {
 const InformationsHeader = createContext<InformationsHeaderProps>({} as InformationsHeaderProps);
 
 export const InformationsHeaderProvider = ({ children }: InformationsProviderProps) => {
-    const [details, setDatails] = useState("");
-    const [headerTitle, setHeaderTitle] = useState("");
+    const [details, setDatails] = useState("eror");
+    const [headerTitle, setHeaderTitle] = useState("eror");
 
-    
     function modifierDetails(modDetails: string) {
         setDatails(modDetails)
     }
@@ -25,14 +24,14 @@ export const InformationsHeaderProvider = ({ children }: InformationsProviderPro
         setHeaderTitle(modInfo)
     }
 
-    return(
-        <InformationsHeader.Provider value={{details,headerTitle,modifierDetails, modifierHeaderTitle}}>
+    return (
+        <InformationsHeader.Provider value={{ details, headerTitle, modifierDetails, modifierHeaderTitle }}>
             {children}
         </InformationsHeader.Provider>
     )
 
 }
-export const UseAndModifierInformations = ()=>{
+export const UseAndModifierInformations = () => {
     const context = useContext(InformationsHeader)
 
     return context;
