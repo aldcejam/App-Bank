@@ -24,7 +24,6 @@ const home: NextPage = () => {
       <Head>
         <title>Home</title>
       </Head>
-      aaa
     </>
   )
 }
