@@ -23,7 +23,7 @@ export function Header() {
 
     }
     return (
-        <header className="z-50 bg-primary py-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
+        <header className="z-50 bg-primary pt-8 pb-4 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 {details ?
                     <div>

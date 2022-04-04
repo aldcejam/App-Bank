@@ -14,8 +14,8 @@ interface InformationsHeaderProps {
 const InformationsHeader = createContext<InformationsHeaderProps>({} as InformationsHeaderProps);
 
 export const InformationsHeaderProvider = ({ children }: InformationsProviderProps) => {
-    const [details, setDatails] = useState("eror");
-    const [headerTitle, setHeaderTitle] = useState("eror");
+    const [details, setDatails] = useState("error");
+    const [headerTitle, setHeaderTitle] = useState("error");
 
     function modifierDetails(modDetails: string) {
         setDatails(modDetails)

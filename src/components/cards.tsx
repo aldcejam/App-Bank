@@ -2,7 +2,9 @@ import { memo } from "react";
 import { IoIosAddCircle, IoLogoVk } from "react-icons/io"
 import { PersonCard } from "./person";
 
+/* ================================================= */
 /* ================== credit card ================== */
+/* ================================================= */
 interface CredCardProps {
     NumberCard: string;
     BankBalance: number;
@@ -31,14 +33,45 @@ function CredCardComponents({ NumberCard, BankBalance, IsActive }: CredCardProps
 
 export const CredCard = memo(CredCardComponents)
 
+/* ======================================================= */
+/* ================== credit card slide ================== */
+/* ======================================================= */
 
+interface CredCardSlideProps {
+    NumberCard: string;
+    BankBalance: number;
+    IsActive: boolean;
+    color: string
+}
+
+function CredCardSlideComponents({ NumberCard, BankBalance, IsActive, color }: CredCardSlideProps) {
+    return (
+        <div className={`${color} w-[60vw] max-w-[270px] min-w-[200px] h-[44vw] max-h-44 rounded-large shadow-md text-lg relative p-3`} >
+            <IoLogoVk className="float-left text-3xl" />
+            <span className="absolute bottom-16 right-10 text-2xl text-gray-100">
+                {NumberCard} <span className="mr-3">****</span>
+            </span>
+            <span className="absolute bottom-2 left-3 text-gray-500">
+                {Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                }).format(BankBalance)}
+            </span>
+
+        </div>
+    )
+}
+export const CredCardSlide = memo(CredCardSlideComponents)
+
+/* ================================================== */
 /* ================== card Friends ================== */
+/* ================================================== */
 
 interface CardRecipientProps {
     isActive: boolean;
     RecipientImage: string;
 }
- function CardRecipientComponent({ isActive, RecipientImage }: CardRecipientProps) {
+function CardRecipientComponent({ isActive, RecipientImage }: CardRecipientProps) {
     const colorCard = isActive ? "bg-constrast" : "bg-gray-300";
     return(
         <div className={`${colorCard} shadow-inner w-5/6 min-w-52 max-w-16 h-40 rounded-lg text-lg text-center p-3  flex items-center justify-center`}>
@@ -51,7 +84,10 @@ interface CardRecipientProps {
 }
 
 export const CardRecipient = memo(CardRecipientComponent)
+
+/* ============================================== */
 /* ================== add card ================== */
+/* ============================================== */
 export function CardAddComponent() {
     return (
         <div className="border-gray-300 relative w-5/6 min-w-56 h-40 text-lg rounded-lg border-dashed shadow-md border-2">
@@ -62,7 +98,10 @@ export function CardAddComponent() {
     )
 }
 export const CardAdd = memo(CardAddComponent)
+
+/* ================================================== */
 /* ================== config cards ================== */
+/* ================================================== */
 interface CardSettingsProps {
     icon: any;
     settingName: string;

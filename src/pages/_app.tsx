@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       session={pageProps.session}
     >
       <InformationsHeaderProvider>
-        <div className="relative w-full max-w-md h-screen bg-primary mx-auto pt-24 pb-28 overflow-y-auto overflow-x-hidden beautiful-scrool">
+        <div className="relative w-full max-w-md h-screen bg-primary mx-auto pt-28 pb-28 overflow-y-auto overflow-x-hidden beautiful-scrool">
           <Header />
           <Footer />
           <Component {...pageProps} />
