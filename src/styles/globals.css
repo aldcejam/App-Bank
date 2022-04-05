@@ -1,8 +1,8 @@
-body{
+body {
     font-family: 'Titillium Web', sans-serif;
     background-color: #080a13;
-    
-    
+
+
 }
 
 @tailwind base;
@@ -11,34 +11,39 @@ body{
 
 
 @layer utilities {
-    .display-disappear{
+    .display-disappear {
         transition: display 1s;
     }
+
     .min-w-56 {
         min-width: 14rem
     }
-    .mr-card-cp-center{
+
+    .mr-card-cp-center {
         margin-right: 35.5%;
         margin-top: 22%;
-        
+
     }
-    .h-10-screen{
+
+    .h-10-screen {
         height: 40vw;
     }
 
     .overflow-invisible {
         overflow-x: auto;
-        
+
     }
+
     .overflow-invisible::-webkit-scrollbar {
         width: 0px;
         display: none;
-        
+
     }
-    .overflow-inverted{
+
+    .overflow-inverted {
         direction: rtl;
     }
-    
+
 
 
 }
@@ -49,38 +54,40 @@ body{
     .beautiful-scroll {
         scrollbar-width: thin !important;
     }
-    
+
     .beautiful-scroll::-webkit-scrollbar-thumb {
         @apply bg-gray-400;
         @apply rounded-sm;
     }
-    
+
     .beautiful-scroll::-webkit-scrollbar {
         width: 12px;
     }
 
     /* ============ footer ============ */
-    
+
     .navegationIcon {
         @apply relative;
         @apply block;
         @apply duration-500;
     }
 
-    .navegationIndicator{
-        @apply absolute; 
-        @apply w-16; 
+    .navegationIndicator {
+        @apply absolute;
+        @apply w-16;
         @apply h-16;
-        @apply bg-constrast; 
-        @apply rounded-full ;
-        @apply border-8 ;
-        @apply box-content ;
-        @apply duration-500 ;
+        @apply bg-constrast;
+        @apply rounded-full;
+        @apply border-8;
+        @apply box-content;
+        @apply duration-500;
         @apply -top-2/4;
     }
+
     .active .navegationIcon {
         transform: translateY(-41px)
     }
+
     .navegationIndicator::before {
         content: '';
         @apply absolute;
@@ -90,9 +97,9 @@ body{
         @apply h-5;
         @apply rounded-tr-2x2;
         @apply bg-transparent;
-        box-shadow: 0px -10px 2px 0 #DEDEDE; 
+        box-shadow: 0px -10px 2px 0 #DEDEDE;
     }
-    
+
     .navegationIndicator::after {
         content: '';
         @apply absolute;
@@ -102,7 +109,7 @@ body{
         @apply h-5;
         @apply rounded-tl-2x2;
         @apply bg-transparent;
-        box-shadow: 0px -10px 2px 0 #DEDEDE; 
+        box-shadow: 0px -10px 2px 0 #DEDEDE;
     }
 
     .home~.navegationIndicator {
@@ -129,17 +136,24 @@ body{
 
 }
 
-.slide{
+.slide {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     overflow-x: scroll;
-    padding: 0px 60px 20px;
+    padding: 25px 30px 40px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-.slide .slide__item{
+
+.slide .slide__item {
     display: block;
-    scroll-snap-align: center
+    scroll-snap-align: center;
+
 }
 
+.slide .slide__item.active {
+    transform: scale(1.17);
+    margin: 0 6%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}

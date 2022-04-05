@@ -1,9 +1,9 @@
 import { NextPage } from "next";
-import { UseAndModifierInformations } from "../contexts/headerContext";
+import {UseAndModifierInformationsHeader } from "../contexts/headerContext";
 
 const Chart: NextPage = () => {
     /* Header */
-    const {modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
+    const {modifierDetails,modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
     
     modifierDetails("")

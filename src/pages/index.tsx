@@ -2,11 +2,11 @@ import { NextApiRequest, NextPage } from "next";
 import { getSession } from "next-auth/react";
 import React, { FormEvent, useState } from "react";
 import { CredCard, CardAdd, CardRecipient } from "../components/cards";
-import { UseAndModifierInformations } from "../contexts/headerContext";
+import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
 
 const index: NextPage = (props) => {
     /* Header */
-    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
+    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
     modifierDetails("")
     modifierHeaderTitle("Send Money")

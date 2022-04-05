@@ -1,19 +1,28 @@
 
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useRef } from 'react';
-import { CredCard, CredCardSlide } from '../components/cards';
-import { UseAndModifierInformations } from '../contexts/headerContext';
+import { CredCardSlide } from '../components/cards';
+import { UseAndModifierInformationsHeader } from '../contexts/headerContext';
 
+interface homeProps {
+  dataOfAllCreditCards: Array<{
+    color: string,
+    IsActive: boolean,
+    NumberCard: string,
+    id: number;
+    balance:number
+  }>
+  ala: any
+}
 
-
-const home: NextPage = () => {
+const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
 
   /* Colocar no modifierMainInformation */
   const SaodoBancario = 2293;
 
-  const { modifierDetails } = UseAndModifierInformations();
-  const { modifierHeaderTitle } = UseAndModifierInformations();
+  const { modifierDetails } = UseAndModifierInformationsHeader();
+  const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
+
 
   /* ===== header ===== */
   modifierDetails("your banlance")
@@ -24,18 +33,12 @@ const home: NextPage = () => {
 
   const EditValueHeader = 926.21
 
-  const credCardDataBase = [
-    {
-      color: "bg-orange-cp",
-      IsActive: true,
-      NumberCard: "3283",
-    },
-    {
-      color: "bg-constrast",
-      IsActive: false,
-      NumberCard: "4543",
-    }
-  ]
+  interface dataCredCardProps {
+    color: string,
+    IsActive: boolean,
+    NumberCard: string,
+    id: number
+  }
   return (
     <>
       <Head>
@@ -43,21 +46,51 @@ const home: NextPage = () => {
       </Head>
 
       <section className='slide'>
+        {console.log(ala)}
         {
-          credCardDataBase.map((a)=>{
-            return(
-              <a href={`#${a.NumberCard}`} id={`${a.NumberCard}`} key={a.NumberCard} className='slide__item'>
-                <CredCardSlide  color={`${a.color}`}/>
+          dataOfAllCreditCards.map((CredCardData: dataCredCardProps) => {
+            return (
+              <a
+                key={CredCardData.id}
+                href={`#${CredCardData.id}`}
+                id={`${CredCardData.id}`}
+                className={CredCardData.IsActive ? 'slide__item active' : "slide__item"}>
+                <CredCardSlide
+                  color={`${CredCardData.color}`}
+                  IsActive={CredCardData.IsActive}
+                  NumberCard={CredCardData.NumberCard}
+                />
               </a>
             )
           }
-
           )
         }
       </section>
     </>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+  const res = await fetch(`http://localhost:3333/Credcarddata`)
+  const creditCardsDataBase = await res.json()
+
+  const dataOfAllCreditCards = creditCardsDataBase.map((CredCardData: any) => {
+    return (
+      {
+        id: CredCardData.id,
+        OccultNumberCard: `${(CredCardData.NumberCard.toString()).substring(0,4)}`,
+        IsActive: CredCardData.IsActive,
+        balance: CredCardData.balance,
+        color: CredCardData.color,
+        nameAndLastName: CredCardData.nameAndLastName
+      }
+    )
+  })
+
+  return { props: { dataOfAllCreditCards } }
+}
+
 
 export default home
 

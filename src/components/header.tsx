@@ -1,4 +1,4 @@
-import { UseAndModifierInformations } from "../contexts/headerContext";
+import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
 import { PersonAutentication } from "./person";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { MenuUser } from "./menuUser";
@@ -9,7 +9,7 @@ export function Header() {
     const { data: session, status } = useSession()
 
     /* ======== Header informations ======== */
-    const { details, headerTitle } = UseAndModifierInformations();
+    const { details, headerTitle } = UseAndModifierInformationsHeader();
     const personImage = session?.user?.image;
 
     /* ======== Header situation ======== */
@@ -23,7 +23,7 @@ export function Header() {
 
     }
     return (
-        <header className="z-50 bg-primary pt-8 pb-4 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
+        <header className="z-50 bg-primary pt-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
                 {details ?
                     <div>

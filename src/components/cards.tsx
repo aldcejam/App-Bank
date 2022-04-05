@@ -46,10 +46,10 @@ interface CredCardSlideProps {
 
 function CredCardSlideComponents({ NumberCard, BankBalance, IsActive, color }: CredCardSlideProps) {
     return (
-        <div className={`${color} w-[60vw] max-w-[270px] min-w-[200px] h-[44vw] max-h-44 rounded-large shadow-md text-lg relative p-3`} >
+        <div className={`${color} w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg relative p-3`} >
             <IoLogoVk className="float-left text-3xl" />
-            <span className="absolute bottom-16 right-10 text-2xl text-gray-100">
-                {NumberCard} <span className="mr-3">****</span>
+            <span className="absolute bottom-16 right-10 text-lg text-gray-100">
+                <span className="mr-3">**** **** **** {NumberCard}</span>
             </span>
             <span className="absolute bottom-2 left-3 text-gray-500">
                 {Intl.NumberFormat('pt-BR', {

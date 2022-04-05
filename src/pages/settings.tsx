@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { CardSettings } from "../components/cards";
-import { UseAndModifierInformations } from "../contexts/headerContext";
+import {UseAndModifierInformationsHeader } from "../contexts/headerContext";
 import {
     IoAlertSharp,
     IoLockClosedSharp,
@@ -18,7 +18,7 @@ import {
 
 const Config: NextPage = () => {
     /* Header */
-    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformations();
+    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
     modifierDetails("")
     modifierHeaderTitle("Settings")

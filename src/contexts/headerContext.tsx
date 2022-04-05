@@ -31,7 +31,7 @@ export const InformationsHeaderProvider = ({ children }: InformationsProviderPro
     )
 
 }
-export const UseAndModifierInformations = () => {
+export const UseAndModifierInformationsHeader = () => {
     const context = useContext(InformationsHeader)
 
     return context;
