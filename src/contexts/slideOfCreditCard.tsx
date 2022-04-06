@@ -1,10 +1,10 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
-interface InformationsProviderProps {
+interface ChildrenProps {
     children: ReactNode;
 }
 
-interface slideCreditCardProps {
+interface creditCardDatabaseProps {
     dataOfAllCreditCards: Array<{
         color: string,
         IsActive: boolean,
@@ -12,25 +12,18 @@ interface slideCreditCardProps {
         id: number;
         nameAndLastName: string,
 
-      }>
+    }>
 }
 
-const creditCardsDataBase = async ()=>{
+const creditCardDatabase = createContext<creditCardDatabaseProps>({} as creditCardDatabaseProps);
 
-}
-
-const SlideCreditCard = createContext<slideCreditCardProps>({} as slideCreditCardProps);
-
-export const SlideCreditCardProvider =  ({ children }: InformationsProviderProps) => {
-
+export const creditCardDatabaseProvider = ({ children }: ChildrenProps) => {
     const [dataOfAllCreditCards, setDataOfAllCreditCards] = useState([])
 
-    
-    const getDataOfAllCreditCards = async ()=>{
+    const getDataOfAllCreditCards = async () => {
         const res = await fetch(`http://localhost:3333/Credcarddata`)
-        const creditCardsDataBase = await res.json()
-
-        const ModifiedDataOfCreditCards = creditCardsDataBase.map((CredCardData: any) => {
+        const apiCreditCardsDataBase = await res.json()
+        const ModifiedDataOfCreditCards = apiCreditCardsDataBase.map((CredCardData: any) => {
             return (
                 {
                     id: CredCardData.id,
@@ -43,18 +36,21 @@ export const SlideCreditCardProvider =  ({ children }: InformationsProviderProps
             )
         })
         setDataOfAllCreditCards(ModifiedDataOfCreditCards)
-
     }
+    useEffect(()=>{
+        getDataOfAllCreditCards()
+    },[])
+
 
     return (
-        <SlideCreditCard.Provider value={{ dataOfAllCreditCards }}>
+        <creditCardDatabase.Provider value={{ dataOfAllCreditCards }}>
             {children}
-        </SlideCreditCard.Provider>
+        </creditCardDatabase.Provider>
     )
 
 }
-export const dataOfAllCreditCards = () => {
-    const context = useContext(SlideCreditCard)
+export const dataOfAllCreditCardsContext = () => {
+    const context = useContext(creditCardDatabase)
 
     return context;
 }

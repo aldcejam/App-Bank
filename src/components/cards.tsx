@@ -39,23 +39,17 @@ export const CredCard = memo(CredCardComponents)
 
 interface CredCardSlideProps {
     NumberCard: string;
-    BankBalance: number;
     IsActive: boolean;
-    color: string
+    color: string;
+    nameAndLastName: string
 }
 
-function CredCardSlideComponents({ NumberCard, BankBalance, IsActive, color }: CredCardSlideProps) {
+function CredCardSlideComponents({ NumberCard, IsActive, color }: CredCardSlideProps) {
     return (
-        <div className={`${color} w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg relative p-3`} >
+        <div className={`${color} relative w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg p-3`} >
             <IoLogoVk className="float-left text-3xl" />
             <span className="absolute bottom-16 right-10 text-lg text-gray-100">
                 <span className="mr-3">**** **** **** {NumberCard}</span>
-            </span>
-            <span className="absolute bottom-2 left-3 text-gray-500">
-                {Intl.NumberFormat('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                }).format(BankBalance)}
             </span>
 
         </div>

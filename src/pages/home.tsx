@@ -6,10 +6,10 @@ import { UseAndModifierInformationsHeader } from '../contexts/headerContext';
 
 interface homeProps {
   dataOfAllCreditCards: Array<{
+    id: number;
     color: string,
     IsActive: boolean,
-    NumberCard: string,
-    id: number;
+    OccultNumberCard: string,
     balance:number
   }>
   ala: any
@@ -24,6 +24,7 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
   const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
 
+
   /* ===== header ===== */
   modifierDetails("your banlance")
   modifierHeaderTitle(Intl.NumberFormat('pt-BR', {
@@ -36,7 +37,7 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
   interface dataCredCardProps {
     color: string,
     IsActive: boolean,
-    NumberCard: string,
+    OccultNumberCard: string,
     id: number
   }
   return (
@@ -58,7 +59,7 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
                 <CredCardSlide
                   color={`${CredCardData.color}`}
                   IsActive={CredCardData.IsActive}
-                  NumberCard={CredCardData.NumberCard}
+                  NumberCard={CredCardData.OccultNumberCard}
                 />
               </a>
             )
@@ -71,19 +72,19 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-
   const res = await fetch(`http://localhost:3333/Credcarddata`)
   const creditCardsDataBase = await res.json()
 
   const dataOfAllCreditCards = creditCardsDataBase.map((CredCardData: any) => {
     return (
       {
-        id: CredCardData.id,
+        Id: CredCardData.id,
         OccultNumberCard: `${(CredCardData.NumberCard.toString()).substring(0,4)}`,
         IsActive: CredCardData.IsActive,
-        balance: CredCardData.balance,
-        color: CredCardData.color,
-        nameAndLastName: CredCardData.nameAndLastName
+        Balance: CredCardData.balance,
+        Color: CredCardData.color,
+        NameAndLastName: CredCardData.nameAndLastName,
+        Expires: CredCardData.Expires
       }
     )
   })
