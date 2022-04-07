@@ -5,13 +5,35 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'primary': '#DEDEDE',
-      'secondary': '#FFFFFF',
+      'primary': '#FFFFFF',
+      'secondary': '#DEDEDE',
       'constrast': '#613EEA',
       'orange-cp': '#FF7D00',
       'black-cp': '#171D33',
       'green-cp': '#10C971',
       'transparent': '#FFFFFF00',
+      card:{
+        blue: {
+          left:'#8E7EFB',
+          right: '#8E7EFB'
+        },
+        green: {
+          left:'#7BED8E',
+          right: '#7EFB93'
+        },
+        black: {
+          left:'#171D33',
+          right: '#212946'
+        },
+        pink: {
+          left:'#FB7EDB',
+          right: '#F38AD9'
+        },
+        red: {
+          left:'#FB7E7E',
+          right: '#F68787'
+        }
+      },
       gray: {
         100: '#f7fafc',
         200: '#E0E0E1',
@@ -25,9 +47,11 @@ module.exports = {
       }
     },
     screens: {
+      'ssm': '380px',
       'sm': {
         'max': '370px'
-      }
+      },
+      'msm': '450px'
     },
     fontFamily: {
       sans: ['Sarabun', 'sans-serif']

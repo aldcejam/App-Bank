@@ -8,9 +8,10 @@ interface homeProps {
   dataOfAllCreditCards: Array<{
     id: number;
     color: string,
-    IsActive: boolean,
-    OccultNumberCard: string,
-    balance:number
+    isActive: boolean,
+    occultNumberCard: string,
+    nameAndLastName:string,
+    expires: string
   }>
   ala: any
 }
@@ -36,9 +37,11 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
 
   interface dataCredCardProps {
     color: string,
-    IsActive: boolean,
-    OccultNumberCard: string,
-    id: number
+    isActive: boolean,
+    occultNumberCard: string,
+    id: number,
+    nameAndLastName: string,
+    expires: string
   }
   return (
     <>
@@ -47,7 +50,6 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
       </Head>
 
       <section className='slide'>
-        {console.log(ala)}
         {
           dataOfAllCreditCards.map((CredCardData: dataCredCardProps) => {
             return (
@@ -55,11 +57,12 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
                 key={CredCardData.id}
                 href={`#${CredCardData.id}`}
                 id={`${CredCardData.id}`}
-                className={CredCardData.IsActive ? 'slide__item active' : "slide__item"}>
+                className={CredCardData.isActive ? 'slide__item active' : "slide__item"}>
                 <CredCardSlide
                   color={`${CredCardData.color}`}
-                  IsActive={CredCardData.IsActive}
-                  NumberCard={CredCardData.OccultNumberCard}
+                  numberCard={CredCardData.occultNumberCard}
+                  nameAndLastName={CredCardData.nameAndLastName}
+                  expires={CredCardData.expires}
                 />
               </a>
             )
@@ -78,13 +81,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const dataOfAllCreditCards = creditCardsDataBase.map((CredCardData: any) => {
     return (
       {
-        Id: CredCardData.id,
-        OccultNumberCard: `${(CredCardData.NumberCard.toString()).substring(0,4)}`,
-        IsActive: CredCardData.IsActive,
-        Balance: CredCardData.balance,
-        Color: CredCardData.color,
-        NameAndLastName: CredCardData.nameAndLastName,
-        Expires: CredCardData.Expires
+        id: CredCardData.id,
+        occultNumberCard: `${(CredCardData.numberCard.toString()).substring(0,4)}`,
+        isActive: CredCardData.isActive,
+        balance: CredCardData.balance,
+        color: CredCardData.color,
+        nameAndLastName: CredCardData.nameAndLastName,
+        expires: CredCardData.expires
       }
     )
   })

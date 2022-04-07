@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { IoIosAddCircle, IoLogoVk } from "react-icons/io"
 import { PersonCard } from "./person";
+import  BackgroundCardSvg  from './backgroundCardSvg'
 
 /* ================================================= */
 /* ================== credit card ================== */
@@ -38,20 +39,34 @@ export const CredCard = memo(CredCardComponents)
 /* ======================================================= */
 
 interface CredCardSlideProps {
-    NumberCard: string;
-    IsActive: boolean;
+    numberCard: string;
     color: string;
     nameAndLastName: string
+    expires: string
 }
 
-function CredCardSlideComponents({ NumberCard, IsActive, color }: CredCardSlideProps) {
-    return (
-        <div className={`${color} relative w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg p-3`} >
-            <IoLogoVk className="float-left text-3xl" />
-            <span className="absolute bottom-16 right-10 text-lg text-gray-100">
-                <span className="mr-3">**** **** **** {NumberCard}</span>
-            </span>
+function CredCardSlideComponents({ numberCard, color, nameAndLastName, expires }: CredCardSlideProps) {
+    const title = "text-xs msm:text-base text-secondary"
+    const text = "text-sm msm:text-lg text-primary"
 
+
+    return (
+
+        <div className={`bg-gradient-to-r from-card-${color}-left to-card-${color}-right relative w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg py-3 px-4`} >
+            <IoLogoVk className=" text-3xl" />
+            <div className="absolute top-[40%] left-5 z-30 tracking-[0.2rem] text-gray-100 text-base ssm:text-lg msm:text-xl msm:tracking-[0.3rem]">
+                <span>****  ****  **** {numberCard}</span>
+            </div>
+            <div className="absolute bottom-4 left-5 leading-6 z-30">
+                <h4 className={title}>Card holder</h4>
+                <span className={text}>{nameAndLastName}</span>
+            </div>
+            <div className="absolute right-5 bottom-4 z-30 text-right leading-6">
+                <h4 className={title}>Expires</h4>
+                <p className={text}>{expires}</p>
+            </div>
+            <img className='absolute bottom-0 left-0 ' src="wave.svg" alt="sas" />
+            
         </div>
     )
 }
@@ -67,10 +82,10 @@ interface CardRecipientProps {
 }
 function CardRecipientComponent({ isActive, RecipientImage }: CardRecipientProps) {
     const colorCard = isActive ? "bg-constrast" : "bg-gray-300";
-    return(
+    return (
         <div className={`${colorCard} shadow-inner w-5/6 min-w-52 max-w-16 h-40 rounded-lg text-lg text-center p-3  flex items-center justify-center`}>
             <div>
-                <PersonCard image={RecipientImage}  />
+                <PersonCard image={RecipientImage} />
                 <p>sjsj</p>
             </div>
         </div>

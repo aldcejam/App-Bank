@@ -2,33 +2,42 @@ module.exports = ()=>{
     const data = {
         credCardData: [
             {
-                Id: 9545431326982482,
-                Balance: 1289,
-                Color: "bg-black-cp",
-                IsActive: false,
-                NumberCard: 9545431326982482,
-                NameAndLastName: "Aldcejam Junior",
-                Expires: "12/2029"
+                id: 9545431326982482,
+                balance: 1289,
+                color: "red",
+                isActive: false,
+                numberCard: 9545431326982482,
+                nameAndLastName: "Aldcejam Junior",
+                expires: "12/2029"
               },
               {
-                Id: 5431321955761569,
-                Balance: 1243,
-                IsActive: true,
-                Color: "bg-constrast",
-                NumberCard: 5431321955761569,
-                NameAndLastName: "Martha Rebeka",
-                Expires: "8/2024"
+                id: 5431321955761569,
+                balance: 1243,
+                isActive: true,
+                numberCard: 5431321955761569,
+                nameAndLastName: "Martha Rebeka",
+                expires: "08/2024",
+                color: "blue",
               },
               {
-                Id: 1959378395657615,
-                Color: "bg-orange-cp",
-                Balance: 1243,
-                IsActive: false,
-                NumberCard: 1959378395657615,
-                NameAndLastName: "clovis de barro",
-                Expires: "01/2032"
+                id: 1536525564127221,
+                balance: 1289,
+                isActive: false,
+                numberCard: 1536525564127221,
+                nameAndLastName: "Aldcejam Junior",
+                expires: "06/2029",
+                color: "pink",
               },
-
+              {
+                id: 1536525539277221,
+                balance: 1289,
+                isActive: false,
+                numberCard: 1536525539277221,
+                nameAndLastName: "Renata alabama",
+                expires: "03/2029",
+                color: "green"
+              },
+              
         ],
     }
     return data;

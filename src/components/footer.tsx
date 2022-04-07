@@ -22,7 +22,7 @@ export function Footer() {
     const navegationLi = "relative w-20 h-16 z-10";
 
     return (
-        <div className="z-50 bg-secondary w-full max-w-md h-20 flex items-center bottom-0 fixed pt-6">
+        <div className="z-50 bg-primary w-full max-w-md h-20 flex items-center bottom-0 fixed pt-6">
             <ul className={navegationUl}>
                 <li onClick={() => ActiveIcons("iconHome")} className={iconHome ? `active home text-gray-100 ${navegationLi}` : `${navegationLi}`}>
                     <Link href="/home">
