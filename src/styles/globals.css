@@ -144,6 +144,11 @@ body {
     padding: 25px 30px 40px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    transition: scrool 4s;
+}
+
+.slide::-webkit-scrollbar {
+    display: none;
 }
 
 .slide .slide__item {
@@ -154,6 +159,7 @@ body {
 
 .slide .slide__item.active {
     transform: scale(1.17);
+    transition: all 1s;
     margin: 0 6%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
@@ -161,20 +167,22 @@ body {
 
 
 /* ================ COLORS CARDS ================ */
-.card-blue{
-    background-image: linear-gradient(to right, #7864fc , #8E7EFB)
+.card-blue {
+    background-image: linear-gradient(to right, #7864fc, #8E7EFB)
 }
-.card-red{
-    background-image: linear-gradient(to right, #f86b6b , #F68787)
-    
+
+.card-red {
+    background-image: linear-gradient(to right, #f86b6b, #F68787)
 }
-.card-green{
-    background-image: linear-gradient(to right, #7BED8E , #7EFB93)
+
+.card-green {
+    background-image: linear-gradient(to right, #7BED8E, #7EFB93)
 }
-.card-black{
-    background-image: linear-gradient(to right, #171D33 , #212946)
+
+.card-black {
+    background-image: linear-gradient(to right, #171D33, #212946)
 }
-.card-pink{
-    background-image: linear-gradient(to right, #FB7EDB , #F38AD9)
-    
+
+.card-pink {
+    background-image: linear-gradient(to right, #FB7EDB, #F38AD9)
 }

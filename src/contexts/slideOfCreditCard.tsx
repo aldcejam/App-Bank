@@ -7,7 +7,6 @@ interface ChildrenProps {
 interface creditCardDatabaseProps {
     dataOfAllCreditCards: Array<{
         color: string,
-        isActive: boolean,
         occultNumberCard: string,
         id: number;
         nameAndLastName: string,
@@ -35,7 +34,6 @@ export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
                 {
                     id: CredCardData.id,
                     occultNumberCard: `${(CredCardData.numberCard.toString()).substring(0, 4)}`,
-                    isActive: CredCardData.IsActive,
                     balance: CredCardData.balance,
                     color: CredCardData.color,
                     nameAndLastName: CredCardData.nameAndLastName,

@@ -8,25 +8,24 @@ import { DataCredCardContext } from '../contexts/slideOfCreditCard';
 
 const Home: NextPage = () => {
 
+  
+  const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = DataCredCardContext()
   /* Colocar no modifierMainInformation */
-  const SaodoBancario = 2293;
-
+  const CredCardBalance = 2293;
+  
+  
+  
+  /* ===== header ===== */
   const { modifierDetails } = UseAndModifierInformationsHeader();
   const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
-  const { dataOfAllCreditCards,setCreditCardSelected,creditCardSelected } = DataCredCardContext()
 
-
-
-  /* ===== header ===== */
   modifierDetails("your banlance")
   modifierHeaderTitle(Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
-  }).format(SaodoBancario))
+  }).format(CredCardBalance))
 
-  const EditValueHeader = 926.21
-
-  function SelectCreditCardToUse(credCardId: number){
+  function SelectCreditCardToUse(credCardId: number) {
     setCreditCardSelected(credCardId)
   }
 
@@ -35,7 +34,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Home</title>
       </Head>
-{console.log(creditCardSelected)}
+      {console.log(creditCardSelected)}
       <section className='slide'>
         {
           dataOfAllCreditCards.map((CredCardData) => {
@@ -44,9 +43,9 @@ const Home: NextPage = () => {
                 key={CredCardData.id}
                 href={`#${CredCardData.id}`}
                 id={`${CredCardData.id}`}
-                className={CredCardData.isActive ? 'slide__item active' : "slide__item"}
-                onClick={()=>{SelectCreditCardToUse(CredCardData.id)}}
-                >
+                className={CredCardData.id == creditCardSelected ? 'slide__item active' : "slide__item"}
+                onClick={() => { SelectCreditCardToUse(CredCardData.id) }}
+              >
                 <CredCardSlide
                   color={`${CredCardData.color}`}
                   numberCard={CredCardData.occultNumberCard}
