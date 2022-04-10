@@ -157,3 +157,24 @@ body {
     margin: 0 6%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
+
+
+
+/* ================ COLORS CARDS ================ */
+.card-blue{
+    background-image: linear-gradient(to right, #7864fc , #8E7EFB)
+}
+.card-red{
+    background-image: linear-gradient(to right, #f86b6b , #F68787)
+    
+}
+.card-green{
+    background-image: linear-gradient(to right, #7BED8E , #7EFB93)
+}
+.card-black{
+    background-image: linear-gradient(to right, #171D33 , #212946)
+}
+.card-pink{
+    background-image: linear-gradient(to right, #FB7EDB , #F38AD9)
+    
+}

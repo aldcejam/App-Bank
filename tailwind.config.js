@@ -12,27 +12,21 @@ module.exports = {
       'black-cp': '#171D33',
       'green-cp': '#10C971',
       'transparent': '#FFFFFF00',
-      card:{
-        blue: {
-          left:'#8E7EFB',
-          right: '#8E7EFB'
-        },
-        green: {
-          left:'#7BED8E',
-          right: '#7EFB93'
-        },
-        black: {
-          left:'#171D33',
-          right: '#212946'
-        },
-        pink: {
-          left:'#FB7EDB',
-          right: '#F38AD9'
-        },
-        red: {
-          left:'#FB7E7E',
-          right: '#F68787'
-        }
+      cardgreen: {
+        left: '#7BED8E',
+        right: '#7EFB93'
+      },
+      cardblack: {
+        left: '#171D33',
+        right: '#212946'
+      },
+      cardpink: {
+        left: '#FB7EDB',
+        right: '#F38AD9'
+      },
+      cardred: {
+        left: '#FB7E7E',
+        right: '#F68787'
       },
       gray: {
         100: '#f7fafc',
@@ -73,7 +67,7 @@ module.exports = {
     maxWidth: {
       '16': '64px',
       'sm': '420px',
-      'md': '450px' 
+      'md': '450px'
     },
     extend: {
       width: {

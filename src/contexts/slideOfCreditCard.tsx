@@ -7,18 +7,25 @@ interface ChildrenProps {
 interface creditCardDatabaseProps {
     dataOfAllCreditCards: Array<{
         color: string,
-        IsActive: boolean,
-        NumberCard: string,
+        isActive: boolean,
+        occultNumberCard: string,
         id: number;
         nameAndLastName: string,
+        expires: string
 
-    }>
+    }>,
+    setCreditCardSelected:any
+    creditCardSelected:any
 }
 
-const creditCardDatabase = createContext<creditCardDatabaseProps>({} as creditCardDatabaseProps);
+interface creditCardSelected{
+    id: number
+}
+const CreditCardDatabase = createContext<creditCardDatabaseProps>({} as creditCardDatabaseProps);
 
-export const creditCardDatabaseProvider = ({ children }: ChildrenProps) => {
+export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
     const [dataOfAllCreditCards, setDataOfAllCreditCards] = useState([])
+    const [creditCardSelected,setCreditCardSelected]= useState([])
 
     const getDataOfAllCreditCards = async () => {
         const res = await fetch(`http://localhost:3333/Credcarddata`)
@@ -27,14 +34,16 @@ export const creditCardDatabaseProvider = ({ children }: ChildrenProps) => {
             return (
                 {
                     id: CredCardData.id,
-                    OccultNumberCard: `${(CredCardData.NumberCard.toString()).substring(0, 4)}`,
-                    IsActive: CredCardData.IsActive,
+                    occultNumberCard: `${(CredCardData.numberCard.toString()).substring(0, 4)}`,
+                    isActive: CredCardData.IsActive,
                     balance: CredCardData.balance,
                     color: CredCardData.color,
-                    nameAndLastName: CredCardData.nameAndLastName
+                    nameAndLastName: CredCardData.nameAndLastName,
+                    expires: CredCardData.expires
                 }
             )
         })
+        
         setDataOfAllCreditCards(ModifiedDataOfCreditCards)
     }
     useEffect(()=>{
@@ -43,14 +52,14 @@ export const creditCardDatabaseProvider = ({ children }: ChildrenProps) => {
 
 
     return (
-        <creditCardDatabase.Provider value={{ dataOfAllCreditCards }}>
+        <CreditCardDatabase.Provider value={{ dataOfAllCreditCards,setCreditCardSelected,creditCardSelected}}>
             {children}
-        </creditCardDatabase.Provider>
+        </CreditCardDatabase.Provider>
     )
 
 }
-export const dataOfAllCreditCardsContext = () => {
-    const context = useContext(creditCardDatabase)
+export const DataCredCardContext = () => {
+    const context = useContext(CreditCardDatabase)
 
     return context;
 }

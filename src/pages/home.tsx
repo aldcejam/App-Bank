@@ -3,26 +3,17 @@ import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { CredCardSlide } from '../components/cards';
 import { UseAndModifierInformationsHeader } from '../contexts/headerContext';
+import { DataCredCardContext } from '../contexts/slideOfCreditCard';
 
-interface homeProps {
-  dataOfAllCreditCards: Array<{
-    id: number;
-    color: string,
-    isActive: boolean,
-    occultNumberCard: string,
-    nameAndLastName:string,
-    expires: string
-  }>
-  ala: any
-}
 
-const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
+const Home: NextPage = () => {
 
   /* Colocar no modifierMainInformation */
   const SaodoBancario = 2293;
 
   const { modifierDetails } = UseAndModifierInformationsHeader();
   const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
+  const { dataOfAllCreditCards,setCreditCardSelected,creditCardSelected } = DataCredCardContext()
 
 
 
@@ -35,29 +26,27 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
 
   const EditValueHeader = 926.21
 
-  interface dataCredCardProps {
-    color: string,
-    isActive: boolean,
-    occultNumberCard: string,
-    id: number,
-    nameAndLastName: string,
-    expires: string
+  function SelectCreditCardToUse(credCardId: number){
+    setCreditCardSelected(credCardId)
   }
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-
+{console.log(creditCardSelected)}
       <section className='slide'>
         {
-          dataOfAllCreditCards.map((CredCardData: dataCredCardProps) => {
+          dataOfAllCreditCards.map((CredCardData) => {
             return (
               <a
                 key={CredCardData.id}
                 href={`#${CredCardData.id}`}
                 id={`${CredCardData.id}`}
-                className={CredCardData.isActive ? 'slide__item active' : "slide__item"}>
+                className={CredCardData.isActive ? 'slide__item active' : "slide__item"}
+                onClick={()=>{SelectCreditCardToUse(CredCardData.id)}}
+                >
                 <CredCardSlide
                   color={`${CredCardData.color}`}
                   numberCard={CredCardData.occultNumberCard}
@@ -74,27 +63,4 @@ const home = ({ dataOfAllCreditCards,ala }: homeProps) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`http://localhost:3333/Credcarddata`)
-  const creditCardsDataBase = await res.json()
-
-  const dataOfAllCreditCards = creditCardsDataBase.map((CredCardData: any) => {
-    return (
-      {
-        id: CredCardData.id,
-        occultNumberCard: `${(CredCardData.numberCard.toString()).substring(0,4)}`,
-        isActive: CredCardData.isActive,
-        balance: CredCardData.balance,
-        color: CredCardData.color,
-        nameAndLastName: CredCardData.nameAndLastName,
-        expires: CredCardData.expires
-      }
-    )
-  })
-
-  return { props: { dataOfAllCreditCards } }
-}
-
-
-export default home
-
+export default Home

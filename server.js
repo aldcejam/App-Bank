@@ -4,7 +4,7 @@ module.exports = ()=>{
             {
                 id: 9545431326982482,
                 balance: 1289,
-                color: "red",
+                color: "card-red",
                 isActive: false,
                 numberCard: 9545431326982482,
                 nameAndLastName: "Aldcejam Junior",
@@ -17,7 +17,7 @@ module.exports = ()=>{
                 numberCard: 5431321955761569,
                 nameAndLastName: "Martha Rebeka",
                 expires: "08/2024",
-                color: "blue",
+                color: "card-blue",
               },
               {
                 id: 1536525564127221,
@@ -26,7 +26,7 @@ module.exports = ()=>{
                 numberCard: 1536525564127221,
                 nameAndLastName: "Aldcejam Junior",
                 expires: "06/2029",
-                color: "pink",
+                color: "card-pink",
               },
               {
                 id: 1536525539277221,
@@ -35,7 +35,7 @@ module.exports = ()=>{
                 numberCard: 1536525539277221,
                 nameAndLastName: "Renata alabama",
                 expires: "03/2029",
-                color: "green"
+                color: "card-green"
               },
               
         ],
