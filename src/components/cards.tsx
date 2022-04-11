@@ -7,25 +7,23 @@ import  BackgroundCardSvg  from './backgroundCardSvg'
 /* ================== credit card ================== */
 /* ================================================= */
 interface CredCardProps {
-    NumberCard: string;
-    BankBalance: number;
-    IsActive: boolean;
+    numberCard: number;
+    bankBalance: number;
 }
 
-function CredCardComponents({ NumberCard, BankBalance, IsActive }: CredCardProps) {
-    const situationCredCard = IsActive ? "bg-constrast" : "bg-gray-300";
+function CredCardComponents({ numberCard, bankBalance }: CredCardProps) {
     return (
-        <div className={`${situationCredCard} w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
+        <div className={`w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
             <div className="w-full h-full absolute" />
             <IoLogoVk className="float-left text-3xl" />
             <span className="absolute bottom-16 right-10 text-2xl text-gray-100">
-                {NumberCard} <span className="mr-3">****</span>
+                {numberCard} <span className="mr-3">****</span>
             </span>
             <span className="absolute bottom-2 left-3 text-gray-500">
                 {Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
-                }).format(BankBalance)}
+                }).format(bankBalance)}
             </span>
 
         </div>
@@ -39,7 +37,7 @@ export const CredCard = memo(CredCardComponents)
 /* ======================================================= */
 
 interface CredCardSlideProps {
-    numberCard: string;
+    numberCard: number;
     color: string;
     nameAndLastName: string
     expires: string

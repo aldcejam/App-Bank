@@ -3,10 +3,11 @@ import { getSession } from "next-auth/react";
 import React, { FormEvent, useState } from "react";
 import { CredCard, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
+import { DataCredCardContext } from "../contexts/slideOfCreditCard";
 
 const index: NextPage = (props) => {
     /* Header */
-    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformationsHeader();
+    const { modifierDetails, modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
     modifierDetails("")
     modifierHeaderTitle("Send Money")
@@ -42,11 +43,8 @@ const index: NextPage = (props) => {
     }
 
     /* ======= cred card ======= */
-    const numberApiCard = 32814562
-    const NumberCard = ((numberApiCard).toString()).substring(4);
+    const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = DataCredCardContext()
 
-    /* colocar no */
-    const BankBalance = 2293
 
     return subPage ? (
 
@@ -65,11 +63,12 @@ const index: NextPage = (props) => {
                 <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
                     <CardAdd />
-                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive={true}/>
-                    <CredCard NumberCard={NumberCard} BankBalance={BankBalance} IsActive={false}/>
+                    {dataOfAllCreditCards.map((dataOfAllCreditCard)=>{
+                        <CredCard bankBalance={dataOfAllCreditCard.balance} numberCard={dataOfAllCreditCard.occultNumberCard}/>
+                    })}
 
                 </section>
-                    
+
                 {/* =========================== Recipient =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Recipient</h4>
                 <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
@@ -89,7 +88,7 @@ const index: NextPage = (props) => {
                         placeholder="$"
                         className="w-9/10% max-w-sm pb-4 pt-2 px-1 border-2  bg-transparent   focus:outline-none "
                         value={transactionAmount}
-                        onChange={event => Number.isNaN(Number(event.target.value)) ? "" : setTransactionAmount(Number(event.target.value)) }
+                        onChange={event => Number.isNaN(Number(event.target.value)) ? "" : setTransactionAmount(Number(event.target.value))}
                     />
                 </fieldset>
                 <input
