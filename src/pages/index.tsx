@@ -1,18 +1,22 @@
 import { NextApiRequest, NextPage } from "next";
 import { getSession } from "next-auth/react";
 import React, { FormEvent, useState } from "react";
-import { CredCard, CardAdd, CardRecipient } from "../components/cards";
+import { CredCardIndex, CardAdd, CardRecipient } from "../components/cards";
 import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
 import { DataCredCardContext } from "../contexts/slideOfCreditCard";
 
-const index: NextPage = (props) => {
+const index: NextPage = () => {
     /* Header */
     const { modifierDetails, modifierHeaderTitle } = UseAndModifierInformationsHeader();
+    /* ======= cred card ======= */
+    const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = DataCredCardContext()
+    function SelectCreditCardToUse(credCardId: number) {
+        setCreditCardSelected(credCardId)
+    }
 
     modifierDetails("")
     modifierHeaderTitle("Send Money")
 
-    console.log(props)
 
     /* true:Card, false: Bank */
     const [subPage, setSubPage] = useState(true);
@@ -42,8 +46,6 @@ const index: NextPage = (props) => {
         setTransactionDescription('')
     }
 
-    /* ======= cred card ======= */
-    const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = DataCredCardContext()
 
 
     return subPage ? (
@@ -61,10 +63,24 @@ const index: NextPage = (props) => {
             <section className="py-8 overflow-y-scroll overflow-x-hidden beautiful-scroll">
                 {/* =========================== select credit card =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
-                <section className="flex gap-8 overflow-y-hidden overflow-invisible overflow-inverted px-5">
+                <section className="slide overflow-inverted">
                     <CardAdd />
-                    {dataOfAllCreditCards.map((dataOfAllCreditCard)=>{
-                        <CredCard bankBalance={dataOfAllCreditCard.balance} numberCard={dataOfAllCreditCard.occultNumberCard}/>
+                    {dataOfAllCreditCards.map((dataCredCard) => {
+                        return (
+                            <a 
+                            key={dataCredCard.id}
+                            onClick={() => { SelectCreditCardToUse(dataCredCard.id) }}
+                            href={`#${dataCredCard.id}`}
+                            id={`${dataCredCard.id}`}
+                            className={dataCredCard.id == creditCardSelected ? 'slide__item bg-constrast rounded-lg' : "slide__item"}
+                            >
+                                <CredCardIndex
+                                    balance={dataCredCard.balance}
+                                    cardNumber={dataCredCard.occultNumberCard}
+                                />
+                            </a>
+
+                        )
                     })}
 
                 </section>

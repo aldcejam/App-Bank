@@ -7,7 +7,7 @@ interface ChildrenProps {
 interface creditCardDatabaseProps {
     dataOfAllCreditCards: Array<{
         color: string,
-        occultNumberCard: number,
+        occultNumberCard: string,
         id: number;
         nameAndLastName: string,
         expires: string

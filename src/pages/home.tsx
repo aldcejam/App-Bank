@@ -34,7 +34,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Home</title>
       </Head>
-      {console.log(creditCardSelected)}
       <section className='slide'>
         {
           dataOfAllCreditCards.map((CredCardData) => {
