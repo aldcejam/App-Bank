@@ -15,6 +15,7 @@ interface CredCardProps {
 function CredCardIndexComponents({ cardNumber, balance }: CredCardProps) {
     return (
         <div className={`w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
+            {console.log('sjoajsoaj')}
             <div className="w-full h-full absolute" />
             <IoLogoVk className="float-left text-3xl" />
             <span className="absolute bottom-16 right-10 text-2xl text-gray-100">
@@ -53,6 +54,7 @@ function CredCardSlideComponents({ numberCard, color, nameAndLastName, expires }
 
         <div className={`${color} relative w-[65vw] max-w-[320px] min-w-[230px] h-[44vw] min-h-[160px] max-h-52 rounded-md shadow-md text-lg py-3 px-4`} >
             <IoLogoVk className=" text-3xl" />
+            {console.log('slide')}
             <div className="absolute top-[40%] left-5 z-30 tracking-[0.2rem] text-gray-100 text-base ssm:text-lg msm:text-xl msm:tracking-[0.3rem]">
                 <span>****  ****  **** {numberCard}</span>
             </div>
@@ -98,11 +100,13 @@ export const CardRecipient = memo(CardRecipientComponent)
 /* ============================================== */
 export function CardAddComponent() {
     return (
+        <a href="#cardAdd" id="cardAdd" className="slide__item">
         <div className="border-gray-300 relative w-5/6 min-w-56 h-40 text-lg rounded-lg border-dashed shadow-md border-2">
             <div className="w-full h-full absolute" />
             <IoIosAddCircle className="text-green-cp text-6xl mr-7/20 mt-4" />
             <p className="text-center text-gray-500">new <br /> cred card</p>
         </div>
+        </a>
     )
 }
 export const CardAdd = memo(CardAddComponent)

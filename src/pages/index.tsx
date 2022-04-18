@@ -64,7 +64,7 @@ const index: NextPage = () => {
                 {/* =========================== select credit card =========================== */}
                 <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
                 <section className="slide overflow-inverted">
-                    <CardAdd />
+                    <CardAdd/>
                     {dataOfAllCreditCards.map((dataCredCard) => {
                         return (
                             <a 
@@ -72,14 +72,13 @@ const index: NextPage = () => {
                             onClick={() => { SelectCreditCardToUse(dataCredCard.id) }}
                             href={`#${dataCredCard.id}`}
                             id={`${dataCredCard.id}`}
-                            className={dataCredCard.id == creditCardSelected ? 'slide__item bg-constrast rounded-lg' : "slide__item"}
+                            className={dataCredCard.id == creditCardSelected ? 'slide__item bg-constrast rounded-lg transition-colors duration-500' : "slide__item"}
                             >
                                 <CredCardIndex
                                     balance={dataCredCard.balance}
                                     cardNumber={dataCredCard.occultNumberCard}
                                 />
                             </a>
-
                         )
                     })}
 
