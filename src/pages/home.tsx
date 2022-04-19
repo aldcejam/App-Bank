@@ -2,8 +2,8 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { CredCardSlide } from '../components/cards';
-import { UseAndModifierInformationsHeader } from '../contexts/headerContext';
-import { DataCredCardContext } from '../contexts/slideOfCreditCard';
+import { UseAndModifierInformationsHeader } from '../Contexts/headerContext';
+import { DataCredCardContext } from '../Contexts/slideOfCreditCard';
 
 
 const Home: NextPage = () => {

@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { CardSettings } from "../components/cards";
-import {UseAndModifierInformationsHeader } from "../contexts/headerContext";
+import {UseAndModifierInformationsHeader } from "../Contexts/headerContext";
 import {
     IoAlertSharp,
     IoLockClosedSharp,

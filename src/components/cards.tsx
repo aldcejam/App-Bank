@@ -98,7 +98,7 @@ export const CardRecipient = memo(CardRecipientComponent)
 /* ============================================== */
 /* ================== add card ================== */
 /* ============================================== */
-export function CardAddComponent() {
+function CardAddComponent() {
     return (
         <a href="#cardAdd" id="cardAdd" className="slide__item">
         <div className="border-gray-300 relative w-5/6 min-w-56 h-40 text-lg rounded-lg border-dashed shadow-md border-2">

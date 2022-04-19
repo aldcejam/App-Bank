@@ -2,8 +2,8 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header'
-import { InformationsHeaderProvider } from "../contexts/headerContext"
-import { CreditCardDatabaseProvider } from '../contexts/slideOfCreditCard'
+import { InformationsHeaderProvider } from "../Contexts/headerContext"
+import { CreditCardDatabaseProvider } from '../Contexts/slideOfCreditCard'
 import { SessionProvider } from "next-auth/react"
 
 

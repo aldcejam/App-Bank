@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
+import { UseAndModifierInformationsHeader } from "../Contexts/headerContext";
 
 const Wallet: NextPage = () => {
     /* Header */

@@ -13,18 +13,20 @@ interface creditCardDatabaseProps {
         expires: string
         balance: number
     }>,
-    setCreditCardSelected:any
-    creditCardSelected:any
+    setCreditCardSelected: any
+    creditCardSelected: any
 }
 
-interface creditCardSelected{
+interface creditCardSelected {
     id: number
 }
 const CreditCardDatabase = createContext<creditCardDatabaseProps>({} as creditCardDatabaseProps);
 
 export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
     const [dataOfAllCreditCards, setDataOfAllCreditCards] = useState([])
-    const [creditCardSelected,setCreditCardSelected]= useState([])
+
+    const [creditCardSelected, setCreditCardSelected] = useState()
+
 
     const getDataOfAllCreditCards = async () => {
         const res = await fetch(`http://localhost:3333/Credcarddata`)
@@ -41,16 +43,16 @@ export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
                 }
             )
         })
-        
+
         setDataOfAllCreditCards(ModifiedDataOfCreditCards)
     }
-    useEffect(()=>{
+    useEffect(() => {
         getDataOfAllCreditCards()
-    },[])
+    }, [])
 
 
     return (
-        <CreditCardDatabase.Provider value={{ dataOfAllCreditCards,setCreditCardSelected,creditCardSelected}}>
+        <CreditCardDatabase.Provider value={{ dataOfAllCreditCards, setCreditCardSelected, creditCardSelected }}>
             {children}
         </CreditCardDatabase.Provider>
     )

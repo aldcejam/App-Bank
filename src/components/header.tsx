@@ -1,4 +1,4 @@
-import { UseAndModifierInformationsHeader } from "../contexts/headerContext";
+import { UseAndModifierInformationsHeader } from "../Contexts/headerContext";
 import { PersonAutentication } from "./person";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { MenuUser } from "./menuUser";
