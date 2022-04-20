@@ -51,6 +51,7 @@ export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
     }, [])
 
 
+
     return (
         <CreditCardDatabase.Provider value={{ dataOfAllCreditCards, setCreditCardSelected, creditCardSelected }}>
             {children}
@@ -58,7 +59,7 @@ export const CreditCardDatabaseProvider = ({ children }: ChildrenProps) => {
     )
 
 }
-export const DataCredCardContext = () => {
+export const CredCardDataContext = () => {
     const context = useContext(CreditCardDatabase)
 
     return context;

@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header'
 import { InformationsHeaderProvider } from "../Contexts/headerContext"
-import { CreditCardDatabaseProvider } from '../Contexts/slideOfCreditCard'
+import { CreditCardDatabaseProvider } from '../Contexts/credCardsDataContext'
 import { SessionProvider } from "next-auth/react"
 
 

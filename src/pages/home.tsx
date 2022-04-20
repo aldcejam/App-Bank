@@ -2,16 +2,13 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { CredCardSlide } from '../components/cards';
+import { SlideCredCardsHome } from '../components/SlidesCredCards';
 import { UseAndModifierInformationsHeader } from '../Contexts/headerContext';
-import { DataCredCardContext } from '../Contexts/slideOfCreditCard';
 
 
 const Home: NextPage = () => {
 
   
-  const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = DataCredCardContext()
-  /* Colocar no modifierMainInformation */
-  const CredCardBalance = 2293;
   
   
   
@@ -19,44 +16,19 @@ const Home: NextPage = () => {
   const { modifierDetails } = UseAndModifierInformationsHeader();
   const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
+  const CredCardBalance = 2293;
   modifierDetails("your banlance")
   modifierHeaderTitle(Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(CredCardBalance))
 
-  function SelectCreditCardToUse(credCardId: number) {
-    setCreditCardSelected(credCardId)
-  }
-
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <section className='slide'>
-        {
-          dataOfAllCreditCards.map((CredCardData) => {
-            return (
-              <a
-                key={CredCardData.id}
-                href={`#${CredCardData.id}`}
-                id={`${CredCardData.id}`}
-                className={CredCardData.id == creditCardSelected ? 'slide__item active' : "slide__item"}
-                onClick={() => { SelectCreditCardToUse(CredCardData.id) }}
-              >
-                <CredCardSlide
-                  color={`${CredCardData.color}`}
-                  numberCard={CredCardData.occultNumberCard}
-                  nameAndLastName={CredCardData.nameAndLastName}
-                  expires={CredCardData.expires}
-                />
-              </a>
-            )
-          }
-          )
-        }
-      </section>
+      <SlideCredCardsHome/>
       <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Transaction details</h4>
             <form method="post"  className="flex justify-center flex-wrap gap-y-4 py-6">
                 <fieldset className="group w-9/10 max-w-sm px-4 border-2 rounded-large border-gray-500 hover:border-constrast duration-200">
