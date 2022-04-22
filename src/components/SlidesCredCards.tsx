@@ -1,5 +1,5 @@
 import { memo, useEffect } from "react";
-import { CredCardDataContext } from "../Contexts/credCardsDataContext";
+import { CredCardDataContext } from "../contexts/CredCardsDataContext";
 import { CardAdd, CredCardIndex, CredCardSlide } from "./cards";
 
 function SlideCredCardsIndexComponent() {
@@ -17,7 +17,7 @@ function SlideCredCardsIndexComponent() {
     const RedirectForCredCardSelected = () => {
         setTimeout(() => {
             window.location.href = `#${creditCardSelected}`
-        }, 200);
+        }, 50);
 
     }
     RedirectForCredCardSelected()

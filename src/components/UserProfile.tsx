@@ -4,7 +4,7 @@ interface PersonProps {
     image: any;
 }
 
-export function PersonCard({ image }: PersonProps) {
+export function UserProfileForCard({ image }: PersonProps) {
     return (
         <div className={`w-12 h-12 rounded-full relative box-content border-2 border-solid border-gray-100`}>
             <img className="rounded-full absolute" src={image} alt="" />
@@ -12,7 +12,7 @@ export function PersonCard({ image }: PersonProps) {
     )
 
 }
-export function PersonAutentication({ image }: PersonProps) {
+export function UserProfileAuthenticated({ image }: PersonProps) {
     return (
         <div className={`w-8 h-8 rounded-full relative border-2 box-content`}>
             <img className="rounded-full absolute" src={image} alt="" />

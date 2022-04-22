@@ -1,33 +1,24 @@
-
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
-import { CredCardSlide } from '../components/cards';
+
 import { SlideCredCardsHome } from '../components/SlidesCredCards';
-import { UseAndModifierInformationsHeader } from '../Contexts/headerContext';
-
-
+import { Header } from '../components/header';
 const Home: NextPage = () => {
 
   
-  
-  
-  
   /* ===== header ===== */
-  const { modifierDetails } = UseAndModifierInformationsHeader();
-  const { modifierHeaderTitle } = UseAndModifierInformationsHeader();
 
-  const CredCardBalance = 2293;
-  modifierDetails("your banlance")
-  modifierHeaderTitle(Intl.NumberFormat('pt-BR', {
+    const balance =  Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
-  }).format(CredCardBalance))
-
+  }).format(1234) 
+    
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
+      <Header title={balance} subTitle='Your balance'/>
       <SlideCredCardsHome/>
       <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Transaction details</h4>
             <form method="post"  className="flex justify-center flex-wrap gap-y-4 py-6">

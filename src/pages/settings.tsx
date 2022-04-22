@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import { CardSettings } from "../components/cards";
-import {UseAndModifierInformationsHeader } from "../Contexts/headerContext";
 import {
     IoAlertSharp,
     IoLockClosedSharp,
@@ -18,10 +17,7 @@ import {
 
 const Config: NextPage = () => {
     /* Header */
-    const { modifierDetails,modifierHeaderTitle } = UseAndModifierInformationsHeader();
-
-    modifierDetails("")
-    modifierHeaderTitle("Settings")
+    
 
     return (
         <div className="w-full grid grid-cols-2  gap-6 p-5 py-8 pb-24">

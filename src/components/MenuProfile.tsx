@@ -4,7 +4,7 @@ interface OptionsUserProps{
     isActive: boolean;
 }
 
-export function MenuUser({isActive}: OptionsUserProps) {
+export function MenuProfile({isActive}: OptionsUserProps) {
     const { data: session,status } = useSession()
     const situation = status == "authenticated" ? true : false;
     const styleButton = "bg-gray-200 text-black-cp px-2 py-1 rounded-lg"

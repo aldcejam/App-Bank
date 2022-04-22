@@ -1,15 +1,17 @@
-import { UseAndModifierInformationsHeader } from "../Contexts/headerContext";
-import { PersonAutentication } from "./person";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { MenuUser } from "./menuUser";
+import { UserProfileAuthenticated } from "./UserProfile";
+import { useSession} from "next-auth/react";
+import { MenuProfile } from "./MenuProfile";
 import { useState } from "react";
 
 
-export function Header() {
+interface HeaderProps{
+    title: string;
+    subTitle?: string;
+}
+
+export function Header({subTitle, title}:HeaderProps) {
     const { data: session, status } = useSession()
 
-    /* ======== Header informations ======== */
-    const { details, headerTitle } = UseAndModifierInformationsHeader();
     const personImage = session?.user?.image;
 
     /* ======== Header situation ======== */
@@ -17,31 +19,32 @@ export function Header() {
 
     
     /* onClick={() => login(situation)}  */
-    const [isActive, setIsActive] = useState(false)
+    const [profileMenuSituation, setProfileMenuSituation] = useState(false)
     function showOptionsUser(){
-        isActive ? setIsActive(false): setIsActive(true);
+        profileMenuSituation ? setProfileMenuSituation(false): setProfileMenuSituation(true);
 
     }
     return (
         <header className="z-50 bg-secondary pt-8 px-3 flex justify-between items-center fixed w-full max-w-md top-0">
             <div>
-                {details ?
+                {subTitle ?
                     <div>
-                        <span className="text-gray-500 text-xs mx-2">
-                            {details}
-                        </span>
+                        <span className="text-gray-500 text-xs ">
+                            {subTitle}
+                        </span> 
                         <br />
                     </div>
-                    : ""}
+                    : null
+                }
                 <span className="font-bold text-2xl">
-                    {headerTitle}
+                    {title}
                 </span>
             </div>
             <div className="cursor-pointer" onClick={() => showOptionsUser()}>
-            {situation ? <PersonAutentication image={personImage} /> : <span>login</span>}
+                {situation ? <UserProfileAuthenticated image={personImage} /> : <span>login</span>}
             </div>
             <div className="absolute z-40 right-12 top-18">
-                <MenuUser isActive={isActive} />
+                <MenuProfile isActive={profileMenuSituation} />
             </div>
         </header>
     )
