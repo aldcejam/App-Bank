@@ -2,7 +2,7 @@ import { CardForAddCredCard } from "./CardForAddCredCard";
 import { render,screen } from '@testing-library/react'
 
 
-describe("Component CardForAddCredCard", ()=>{
+describe('Component CardForAddCredCard', ()=>{
     it('renders correctly',()=>{
         render(
             <CardForAddCredCard/>

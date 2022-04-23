@@ -3,7 +3,7 @@ interface CardSettingsProps {
     settingName: string;
 }
 
-export function CardSetting({ icon, settingName }: CardSettingsProps) {
+export function SettingCard({ icon, settingName }: CardSettingsProps) {
     return (
         <div className=" w-full h-10-screen max-h-44 rounded-lg bg-gray-100 text-center flex items-center justify-center">
             <div >
