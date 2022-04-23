@@ -2,33 +2,33 @@ module.exports = ()=>{
     const data = {
         credCardData: [
             {
-                id: 9545431326982482,
-                balance: 1289,
+                id: 1,
+                balance: 3450,
                 color: "card-red",
-                numberCard: 9545431326982482,
+                numberCard: 7039517638816784,
                 nameAndLastName: "Aldcejam Junior",
                 expires: "12/2029"
               },
               {
-                id: 5431321955761569,
-                balance: 1243,
-                numberCard: 5431321955761569,
+                id: 2,
+                balance: 9200.50,
+                numberCard: 5283596754936199,
                 nameAndLastName: "Martha Rebeka",
                 expires: "08/2024",
                 color: "card-blue",
               },
               {
-                id: 1536525564127221,
-                balance: 1289,
-                numberCard: 1536525564127221,
-                nameAndLastName: "Aldcejam Junior",
+                id: 3,
+                balance: 200,
+                numberCard: 3100058361024282,
+                nameAndLastName: "Picasso",
                 expires: "06/2029",
                 color: "card-pink",
               },
               {
-                id: 1536525539277221,
-                balance: 1289,
-                numberCard: 1536525539277221,
+                id: 4,
+                balance: 45600,
+                numberCard: 1975773899347090,
                 nameAndLastName: "Renata alabama",
                 expires: "03/2029",
                 color: "card-green"

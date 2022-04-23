@@ -1,6 +1,6 @@
-import { UserProfileAuthenticated } from "./UserProfile";
+import { UserProfileAuthenticated } from "../UserProfile/UserProfile";
 import { useSession} from "next-auth/react";
-import { MenuProfile } from "./MenuProfile";
+import { MenuProfile } from "../MenuProfile/MenuProfile";
 import { useState } from "react";
 
 

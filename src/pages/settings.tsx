@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { CardSettings } from "../components/cards";
+import { CardSetting } from "../components/Cards/CardSetting";
 import {
     IoAlertSharp,
     IoLockClosedSharp,
@@ -21,16 +21,16 @@ const Config: NextPage = () => {
 
     return (
         <div className="w-full grid grid-cols-2  gap-6 p-5 py-8 pb-24">
-            <CardSettings icon={<IoAlertSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Profile Information'} />
-            <CardSettings icon={<IoLockClosedSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Passworld'} />
-            <CardSettings icon={<IoMail className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Email'} />
-            <CardSettings icon={<IoCall className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Phone Number'} />
-            <CardSettings icon={<IoNotificationsSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Notification'} />
-            <CardSettings icon={<IoCashOutline className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Currency'} />
-            <CardSettings icon={<IoLanguageSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Language'} />
-            <CardSettings icon={<IoPersonSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Account'} />
-            <CardSettings icon={<IoShieldSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Privacy Policy'} />
-            <CardSettings icon={<IoHelpSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Terms of Use'} />
+            <CardSetting icon={<IoAlertSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Profile Information'} />
+            <CardSetting icon={<IoLockClosedSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Passworld'} />
+            <CardSetting icon={<IoMail className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Email'} />
+            <CardSetting icon={<IoCall className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Phone Number'} />
+            <CardSetting icon={<IoNotificationsSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Notification'} />
+            <CardSetting icon={<IoCashOutline className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Currency'} />
+            <CardSetting icon={<IoLanguageSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Language'} />
+            <CardSetting icon={<IoPersonSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Account'} />
+            <CardSetting icon={<IoShieldSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Privacy Policy'} />
+            <CardSetting icon={<IoHelpSharp className="text-secondary text-2xl box-content p-4 sm:p-3 sm:text-base " />} settingName={'Terms of Use'} />
         </div>
     )
 }

@@ -1,12 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-
-import { SlideCredCardsHome } from '../components/SlidesCredCards';
-import { Header } from '../components/header';
+import { SlideCredCardHome } from '../components/CredCardSlides/HomeCredCardSlide';
+import { Header } from '../components/Header/Header';
 const Home: NextPage = () => {
 
-  
-  /* ===== header ===== */
 
     const balance =  Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -19,7 +16,7 @@ const Home: NextPage = () => {
         <title>Home</title>
       </Head>
       <Header title={balance} subTitle='Your balance'/>
-      <SlideCredCardsHome/>
+      <SlideCredCardHome/>
       <h4 className="text-gray-500 text-sm mx-6 my-2 pt-6">Transaction details</h4>
             <form method="post"  className="flex justify-center flex-wrap gap-y-4 py-6">
                 <fieldset className="group w-9/10 max-w-sm px-4 border-2 rounded-large border-gray-500 hover:border-constrast duration-200">
