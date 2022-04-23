@@ -17,7 +17,7 @@ function SlideCredCardHomeComponent() {
     const RedirectForCredCardSelected = () => {
         setTimeout(() => {
             window.location.href = `#${creditCardSelected}`
-        }, 2000);
+        }, 0);
 
     }
     RedirectForCredCardSelected()

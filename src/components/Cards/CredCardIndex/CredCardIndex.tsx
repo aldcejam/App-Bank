@@ -7,6 +7,8 @@ interface CredCardProps {
 }
 
 function CredCardIndexComponents({ cardNumber, balance }: CredCardProps) {
+    const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+
     return (
         <div className={`w-5/6 min-w-56 h-40 rounded-lg shadow-md text-lg relative p-3`} >
             <div className="w-full h-full absolute" />
@@ -15,10 +17,7 @@ function CredCardIndexComponents({ cardNumber, balance }: CredCardProps) {
                 {cardNumber} <span className="mr-3">****</span>
             </span>
             <span className="absolute bottom-2 left-3 text-gray-500">
-                {Intl.NumberFormat('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                }).format(balance)}
+                {formatter.format(balance)}
             </span>
         </div>
     )

@@ -1,7 +1,7 @@
 import { memo, useEffect } from "react";
 import { CredCardDataContext } from "../../contexts/CredCardsDataContext";
 import { CardForAddCredCard } from "../Cards/CardForAddCredCard/CardForAddCredCard";
-import { CredCardIndex } from "../Cards/CredCardIndex";
+import { CredCardIndex } from "../Cards/CredCardIndex/CredCardIndex";
 
 
 
@@ -21,7 +21,7 @@ function SlideCredCardIndexComponent() {
         if (creditCardSelected) {
             setTimeout(() => {
                 window.location.href = `#${creditCardSelected}`
-            }, 2000);
+            }, 0);
         }
 
     }
