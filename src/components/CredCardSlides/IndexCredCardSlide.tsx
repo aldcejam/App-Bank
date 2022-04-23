@@ -1,6 +1,6 @@
 import { memo, useEffect } from "react";
 import { CredCardDataContext } from "../../contexts/CredCardsDataContext";
-import { CardForAddCredCard } from "../Cards/CardForAddCredCard";
+import { CardForAddCredCard } from "../Cards/CardForAddCredCard/CardForAddCredCard";
 import { CredCardIndex } from "../Cards/CredCardIndex";
 
 
