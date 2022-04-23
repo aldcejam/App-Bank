@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { SettingCard } from './SettingCard'
 
-describe('CardSetting',()=>{
+describe('Component CardSetting',()=>{
     it('renders correctly', ()=>{
         render(
             <SettingCard icon={'fakeIcon'} settingName='FakeSettingName'/>

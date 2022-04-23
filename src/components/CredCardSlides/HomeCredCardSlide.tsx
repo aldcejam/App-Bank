@@ -1,6 +1,6 @@
 import { memo, useEffect } from "react"
 import { CredCardDataContext } from "../../contexts/CredCardsDataContext"
-import { CredCardHome } from "../Cards/CredCardHome"
+import { CredCardHome } from "../Cards/CredCardHome/CredCardHome"
 
 function SlideCredCardHomeComponent() {
     const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = CredCardDataContext()
