@@ -1,32 +1,16 @@
+*{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Titillium Web', sans-serif;
   background-color: #080a13;
-
-
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-  .display-disappear {
-      transition: display 1s;
-  }
-
-  .min-w-56 {
-      min-width: 14rem
-  }
-
-  .mr-card-cp-center {
-      margin-right: 35.5%;
-      margin-top: 22%;
-
-  }
-
-  .h-10-screen {
-      height: 40vw;
-  }
 
   .overflow-invisible {
       overflow-x: auto;
@@ -129,40 +113,7 @@ body {
   /* ============ Card ============ */
 
 }
-*{
-  scroll-behavior: smooth;
-}
-.slide {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  overflow-x: scroll;
-  padding: 25px 30px 40px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scroll-padding-top: 99999px;
-}
 
-.slide::-webkit-scrollbar {
-  display: none;
-}
-
-.slide .slide__item {
-  display: inline;
-  scroll-snap-align: center;
-  
-}
-
-.slide__item:target {
-  scroll-margin-top: 9999px;
-}
-
-.slide .slide__item.active {
-  transform: scale(1.17);
-  transition: all 1s;
-  margin: 0 6%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
 
 
 

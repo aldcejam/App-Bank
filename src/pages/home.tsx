@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { SlideCredCardHome } from '../components/CredCardSlides/HomeCredCardSlide';
+import { SlideCredCardHome } from '../components/CredCardSlides/HomeCredCardSlide/HomeCredCardSlide';
 import { Header } from '../components/Header/Header';
 const Home: NextPage = () => {
 

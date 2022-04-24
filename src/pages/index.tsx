@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React, {  useState } from "react";
 import { CardForFriends } from "../components/Cards/CardForFriends";
-import { SlideCredCardIndex } from "../components/CredCardSlides/IndexCredCardSlide";
+import { SlideCredCardIndex } from "../components/CredCardSlides/IndexCredCardSlide/IndexCredCardSlide";
 import { FormTransaction } from "../components/FormTransaction/FormTransactions";
 import { Header } from "../components/Header/Header";
 
@@ -20,13 +20,15 @@ const index: NextPage = () => {
 
 
     return (
+
+
         <>
             <Header title='Send Money' />
             <div className="border-gray-300 border-solid border-b-2 pb-1 grid grid-cols-2 text-center text-xl text-gray-500">
-                <div onClick={redirectCard}>
+                <div onClick={redirectCard} className="cursor-pointer" id="Card">
                     <span className={subPage ?'border-orange-cp border-solid border-b-2 px-8 pb-1' : ''}>Card</span>
                 </div>
-                <div onClick={redirectBank} className="cursor-pointer">
+                <div onClick={redirectBank} className="cursor-pointer" id="bank">
                     <span className={!subPage ?'border-orange-cp border-solid border-b-2 px-8 pb-1' : ''}>Bank</span>
                 </div>
             </div> 

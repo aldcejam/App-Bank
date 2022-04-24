@@ -16,7 +16,7 @@ export function MenuProfile({isActive}: OptionsUserProps) {
             signIn()
         }
     }
-    const showOptionsUser = isActive ? "opacity-1" : "opacity-0 display-disappear hidden"
+    const showOptionsUser = isActive ? "opacity-1" : "opacity-0 duration-1000  hidden"
     return (
         <article className={`${showOptionsUser} bg-black-cp text-secondary border-b-constrast border-r-constrast pl-4 pr-10 p-6 rounded-l-md rounded-b-md border-4 border-l-0 border-t-0 border-solid`}>
             <h3 className="px-2 text-lg">{session?.user?.name}</h3><br />

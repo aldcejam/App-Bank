@@ -1,6 +1,7 @@
 import { memo, useEffect } from "react"
-import { CredCardDataContext } from "../../contexts/CredCardsDataContext"
-import { CredCardHome } from "../Cards/CredCardHome/CredCardHome"
+import { CredCardDataContext } from "../../../contexts/CredCardsDataContext"
+import { CredCardHome } from "../../Cards/CredCardHome/CredCardHome"
+import style from './style.module.scss'
 
 function SlideCredCardHomeComponent() {
     const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = CredCardDataContext()
@@ -17,12 +18,12 @@ function SlideCredCardHomeComponent() {
     const RedirectForCredCardSelected = () => {
         setTimeout(() => {
             window.location.href = `#${creditCardSelected}`
-        }, 0);
+        }, 100);
 
     }
     RedirectForCredCardSelected()
     return (
-        <section className='slide'>
+        <section className={style.slide}>
             {
                 dataOfAllCreditCards.map((credCardData: any) => {
                     return (
@@ -30,7 +31,7 @@ function SlideCredCardHomeComponent() {
                             key={credCardData.id}
                             href={`#${credCardData.id}`}
                             id={`${credCardData.id}`}
-                            className={credCardData.id == creditCardSelected ? 'slide__item active' : "slide__item"}
+                            className={credCardData.id == creditCardSelected ? `${style.slide__item} ${style.active}` : style.slide__item}
                             onClick={() => { SelectCreditCardToUse(credCardData.id) }}
                         >
                             <CredCardHome

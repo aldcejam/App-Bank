@@ -1,0 +1,35 @@
+@tailwind components;
+
+@layer components {
+    .slide .slide__item.active {
+        @apply bg-constrast;
+        @apply rounded-lg;
+        @apply transition-colors;
+        @apply duration-500;
+      }
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: scroll;
+    padding: 25px 30px 40px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-top: 99999px;
+}
+
+.slide::-webkit-scrollbar {
+    display: none;
+}
+
+.slide .slide__item {
+    display: inline;
+    scroll-snap-align: center;
+
+}
+
+.slide__item:target {
+    scroll-margin-top: 9999px;
+}

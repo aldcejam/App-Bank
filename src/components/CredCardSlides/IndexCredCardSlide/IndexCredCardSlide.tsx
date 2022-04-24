@@ -1,7 +1,8 @@
 import { memo, useEffect } from "react";
-import { CredCardDataContext } from "../../contexts/CredCardsDataContext";
-import { CardForAddCredCard } from "../Cards/CardForAddCredCard/CardForAddCredCard";
-import { CredCardIndex } from "../Cards/CredCardIndex/CredCardIndex";
+import { CredCardDataContext } from "../../../contexts/CredCardsDataContext";
+import { CardForAddCredCard } from "../../Cards/CardForAddCredCard/CardForAddCredCard";
+import { CredCardIndex } from "../../Cards/CredCardIndex/CredCardIndex";
+import style from './style.module.scss'
 
 
 
@@ -21,7 +22,7 @@ function SlideCredCardIndexComponent() {
         if (creditCardSelected) {
             setTimeout(() => {
                 window.location.href = `#${creditCardSelected}`
-            }, 0);
+            }, 100);
         }
 
     }
@@ -29,7 +30,7 @@ function SlideCredCardIndexComponent() {
     return (
         <>
             <h4 className="text-gray-500 text-sm mx-6 my-2">select credit card</h4>
-            <section className="slide overflow-inverted">
+            <section className={style.slide + " overflow-inverted"}>
                 <CardForAddCredCard />
                 {dataOfAllCreditCards.map((credCardData: any) => {
                     return (
@@ -38,7 +39,7 @@ function SlideCredCardIndexComponent() {
                             onClick={() => { SelectCreditCardToUse(credCardData.id) }}
                             href={`#${credCardData.id}`}
                             id={`${credCardData.id}`}
-                            className={credCardData.id == creditCardSelected ? 'slide__item bg-constrast rounded-lg transition-colors duration-500' : "slide__item"}
+                            className={credCardData.id == creditCardSelected ? `${style.slide__item} ${style.active}` : style.slide__item}
                         >
                             <CredCardIndex
                                 balance={credCardData.balance}

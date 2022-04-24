@@ -63,6 +63,7 @@ module.exports = {
     },
     minWidth: {
       '52': '13rem',
+      '56': '14rem'
     },
     maxWidth: {
       '16': '64px',
@@ -73,6 +74,9 @@ module.exports = {
       width: {
         '9/10': '90vw',
         '9/10%': '90%',
+      },
+      hight:{
+        '40-screen': '40vw'
       },
       boxShadow: {
         'md': 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
