@@ -1,4 +1,9 @@
-*{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
   scroll-behavior: smooth;
 }
 
@@ -7,117 +12,8 @@ body {
   background-color: #080a13;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-
-  .overflow-invisible {
-      overflow-x: auto;
-
-  }
-
-  .overflow-invisible::-webkit-scrollbar {
-      width: 0px;
-      display: none;
-
-  }
-
-  .overflow-inverted {
-      direction: rtl;
-  }
-@layer base {
-
-  /* ============= Beautiful Scroll ============== */
-  .beautiful-scroll {
-      scrollbar-width: thin !important;
-  }
-
-  .beautiful-scroll::-webkit-scrollbar-thumb {
-      @apply bg-gray-400;
-      @apply rounded-sm;
-  }
-
-  .beautiful-scroll::-webkit-scrollbar {
-      width: 12px;
-  }
-
-  /* ============ footer ============ */
-
-  .navegationIcon {
-      @apply relative;
-      @apply block;
-      @apply duration-500;
-  }
-
-  .navegationIndicator {
-      @apply absolute;
-      @apply w-16;
-      @apply h-16;
-      @apply bg-constrast;
-      @apply rounded-full;
-      @apply border-8;
-      @apply box-content;
-      @apply duration-500;
-      @apply -top-2/4;
-  }
-
-  .active .navegationIcon {
-      transform: translateY(-41px)
-  }
-
-  .navegationIndicator::before {
-      content: '';
-      @apply absolute;
-      @apply top-3/5;
-      @apply -left-4;
-      @apply w-4;
-      @apply h-5;
-      @apply rounded-tr-2x2;
-      @apply bg-transparent;
-      box-shadow: 0px -10px 2px 0 #DEDEDE;
-  }
-
-  .navegationIndicator::after {
-      content: '';
-      @apply absolute;
-      @apply top-3/5;
-      @apply -right-4;
-      @apply w-4;
-      @apply h-5;
-      @apply rounded-tl-2x2;
-      @apply bg-transparent;
-      box-shadow: 0px -10px 2px 0 #DEDEDE;
-  }
-
-  .home~.navegationIndicator {
-      transform: translateX(max(-40vw, -160px));
-  }
-
-  .wallet~.navegationIndicator {
-      transform: translateX(max(-20vw, -80px))
-  }
-
-  .money~.navegationIndicator {
-      transform: translateX(0px)
-  }
-
-  .chart~.navegationIndicator {
-      transform: translateX(min(20vw, 80px))
-  }
-
-  .config~.navegationIndicator {
-      transform: translateX(min(40vw, 160px))
-  }
-
-  /* ============ Card ============ */
-
-}
-
-
-
-
-/* ================ COLORS CARDS ================ */
+/* ============== Colors for Cards */
 .card-blue {
   background-image: linear-gradient(to right, #7864fc, #8E7EFB)
 }
@@ -137,3 +33,109 @@ body {
 .card-pink {
   background-image: linear-gradient(to right, #FB7EDB, #F38AD9)
 }
+
+
+@layer base {
+
+  /* ============= Scroll ============== */
+  .overflow-invisible {
+    overflow-x: auto;
+  }
+
+  .overflow-invisible::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+
+  .overflow-inverted {
+    direction: rtl;
+  }
+
+  .beautiful-scroll {
+    scrollbar-width: thin !important;
+  }
+
+  .beautiful-scroll::-webkit-scrollbar-thumb {
+    @apply bg-gray-400;
+    @apply rounded-sm;
+  }
+
+  .beautiful-scroll::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* ============ footer ============ */
+
+  .navegationIcon {
+    @apply relative;
+    @apply block;
+    @apply duration-500;
+  }
+
+  .navegationIndicator {
+    @apply absolute;
+    @apply w-16;
+    @apply h-16;
+    @apply bg-constrast;
+    @apply rounded-full;
+    @apply border-8;
+    @apply box-content;
+    @apply duration-500;
+    @apply -top-2/4;
+  }
+
+  .active .navegationIcon {
+    transform: translateY(-41px)
+  }
+
+  .navegationIndicator::before {
+    content: '';
+    @apply absolute;
+    @apply top-3/5;
+    @apply -left-4;
+    @apply w-4;
+    @apply h-5;
+    @apply rounded-tr-2x2;
+    @apply bg-transparent;
+    box-shadow: 0px -10px 2px 0 #DEDEDE;
+  }
+
+  .navegationIndicator::after {
+    content: '';
+    @apply absolute;
+    @apply top-3/5;
+    @apply -right-4;
+    @apply w-4;
+    @apply h-5;
+    @apply rounded-tl-2x2;
+    @apply bg-transparent;
+    box-shadow: 0px -10px 2px 0 #DEDEDE;
+  }
+
+  .home~.navegationIndicator {
+    transform: translateX(max(-40vw, -160px));
+  }
+
+  .wallet~.navegationIndicator {
+    transform: translateX(max(-20vw, -80px))
+  }
+
+  .money~.navegationIndicator {
+    transform: translateX(0px)
+  }
+
+  .chart~.navegationIndicator {
+    transform: translateX(min(20vw, 80px))
+  }
+
+  .config~.navegationIndicator {
+    transform: translateX(min(40vw, 160px))
+  }
+
+
+}
+
+
+
+
+/* ================ COLORS CARDS ================ */

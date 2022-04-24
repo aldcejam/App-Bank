@@ -6,7 +6,7 @@
         @apply rounded-lg;
         @apply transition-colors;
         @apply duration-500;
-      }
+    }
 }
 
 .slide {
@@ -18,18 +18,20 @@
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scroll-padding-top: 99999px;
-}
 
-.slide::-webkit-scrollbar {
-    display: none;
-}
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
-.slide .slide__item {
-    display: inline;
-    scroll-snap-align: center;
+    & .slide__item {
+        display: inline;
 
-}
+        &:target {
+            scroll-margin-top: 9999px;
+        }
 
-.slide__item:target {
-    scroll-margin-top: 9999px;
+    }
+    a {
+        scroll-snap-align: center;
+    }
 }
