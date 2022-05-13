@@ -1,19 +1,18 @@
 import { memo, useEffect } from "react"
-import { CredCardDataContext } from '../../../contexts/CredCardsDataContext'
+import { CredCardDataContext } from "../../../contexts/CredCardsDataContext"
 import { CredCardHome } from "../../Cards/CredCardHome/CredCardHome"
 import style from './style.module.scss'
 
 function SlideCredCardHomeComponent() {
-    /* const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = CredCardDataContext() */
-    const dataOfAllCreditCards = [{}]
-    const creditCardSelected = 2
+    const { dataOfAllCreditCards, setCreditCardSelected, creditCardSelected } = CredCardDataContext()
+
     useEffect(() => {
         const storagedCredCardSelected = localStorage.getItem('@CredCardSelected')
-        /* setCreditCardSelected(storagedCredCardSelected) */
+        setCreditCardSelected(storagedCredCardSelected)
     }, [])
 
     const SelectCreditCardToUse = (credCardId: number) => {
-        /* setCreditCardSelected(credCardId) */
+        setCreditCardSelected(credCardId)
         localStorage.setItem('@CredCardSelected', JSON.stringify(credCardId))
     }
     const RedirectForCredCardSelected = () => {
